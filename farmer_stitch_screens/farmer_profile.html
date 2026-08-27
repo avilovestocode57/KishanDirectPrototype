@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KisanDirect - Farmer Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#005315",
+                    "outline": "#899485",
+                    "on-primary-container": "#005215",
+                    "on-primary-fixed": "#002204",
+                    "on-secondary": "#3c2f00",
+                    "on-tertiary": "#173537",
+                    "surface-tint": "#7bdc7b",
+                    "on-primary": "#00390c",
+                    "surface-container-highest": "#283642",
+                    "surface-bright": "#2d3b47",
+                    "surface-variant": "#283642",
+                    "tertiary-container": "#9bbabc",
+                    "on-surface": "#d5e4f4",
+                    "secondary-fixed": "#ffe086",
+                    "on-tertiary-fixed-variant": "#2e4c4e",
+                    "surface": "#061520",
+                    "surface-container-low": "#0e1d28",
+                    "tertiary": "#b6d6d8",
+                    "secondary-container": "#cfa700",
+                    "surface-container-lowest": "#020f1a",
+                    "secondary-fixed-dim": "#edc22b",
+                    "error": "#ffb4ab",
+                    "primary-fixed-dim": "#7bdc7b",
+                    "on-secondary-container": "#4e3e00",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#002022",
+                    "primary-container": "#69c96b",
+                    "primary-fixed": "#96f995",
+                    "inverse-surface": "#d5e4f4",
+                    "inverse-on-surface": "#24323e",
+                    "error-container": "#93000a",
+                    "outline-variant": "#3f4a3d",
+                    "tertiary-fixed": "#c8e9eb",
+                    "on-tertiary-container": "#2d4b4d",
+                    "on-secondary-fixed": "#231b00",
+                    "background": "#061520",
+                    "on-error": "#690005",
+                    "on-surface-variant": "#becab9",
+                    "surface-container": "#13212c",
+                    "primary": "#84e684",
+                    "inverse-primary": "#006e1f",
+                    "secondary": "#edc22b",
+                    "surface-container-high": "#1d2b37",
+                    "surface-dim": "#061520",
+                    "on-background": "#d5e4f4",
+                    "on-secondary-fixed-variant": "#574500",
+                    "tertiary-fixed-dim": "#adccce"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin_mobile": "16px",
+                    "gutter": "24px",
+                    "sidebar_width": "280px",
+                    "margin_desktop": "32px",
+                    "stack_md": "16px",
+                    "stack_lg": "32px",
+                    "stack_sm": "8px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex antialiased">
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden md:flex flex-col h-full py-stack_lg px-stack_md bg-surface dark:bg-surface fixed left-0 top-0 h-full w-sidebar_width z-20 border-r border-surface-container-low" style="border-right-color: transparent; box-shadow: 2px 0 10px rgba(0,0,0,0.5);">
+<div class="mb-8 flex items-center space-x-3 px-4">
+<span class="material-symbols-outlined text-primary dark:text-primary text-3xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">eco</span>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary">KisanDirect</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Agro-Intelligence</p>
+</div>
+</div>
+<ul class="flex flex-col space-y-2 flex-grow">
+<!-- Inactive -->
+<li><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out text-label-md font-label-md" href="#"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a></li>
+<li><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out text-label-md font-label-md" href="#"><span class="material-symbols-outlined">storefront</span><span>My Shop</span></a></li>
+<li><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out text-label-md font-label-md" href="#"><span class="material-symbols-outlined">inventory_2</span><span>Products</span></a></li>
+<li><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out text-label-md font-label-md" href="#"><span class="material-symbols-outlined">trending_up</span><span>Demand Forecast</span></a></li>
+<li><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out text-label-md font-label-md" href="#"><span class="material-symbols-outlined">psychology</span><span>Crop Recommendations</span></a></li>
+<li><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out text-label-md font-label-md" href="#"><span class="material-symbols-outlined">shopping_cart</span><span>Orders</span></a></li>
+<li><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out text-label-md font-label-md" href="#"><span class="material-symbols-outlined">business_center</span><span>Enterprise Requirements</span></a></li>
+<!-- Active (Profile) -->
+<li><a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-primary dark:text-primary font-bold border-r-4 border-primary bg-[#0B1A2B] text-label-md font-label-md transition-colors duration-200 ease-in-out" href="#"><span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span><span>Profile</span></a></li>
+</ul>
+<div class="mt-auto px-4">
+<div class="flex items-center space-x-3 pt-4 border-t border-surface-container-high">
+<img class="w-10 h-10 rounded-full object-cover border border-outline" data-alt="A rugged, mature Indian farmer with weather-beaten skin and kind eyes, wearing a traditional white turban and simple cotton shirt. The background is a slightly blurred, high-tech agricultural setting with subtle glowing blue and green data overlays indicating crop health. Professional modern agrarian corporate portrait style with deep shadows and bioluminescent green rim light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAvkj29AdO9N-VfQxr62mcXmeNyYAusBfb7QtYNi3grQ-LGFTnlrsb_SYmsFQ4VQeNpwI1UqZdrb60dqVK6_Dn136PpLjZg-HXxV8p4lPp99aQlUrL9kucT_OFAMmkfKp3rQSHygYFTmKj54ZNpw-MzZmz4ELw2amnj-B802FHJY65g9auFuBnyLM78xg1HSqZ-JXsgP33TyToG_4-naj6yaXjztgSBuLiB8hxZjMhO4Ht1_AMS0up"/>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Ramesh Kumar</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Active Subscriber</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-sidebar_width w-full min-h-screen flex flex-col relative z-10">
+<!-- TopAppBar (Desktop) -->
+<header class="hidden md:flex justify-between items-center h-16 w-full pr-margin_desktop bg-surface-container-low dark:bg-surface-container-low sticky top-0 z-20" style="padding-left: 32px;">
+<div class="flex items-center flex-1">
+<!-- Search (on_right logic, but visually balanced here) -->
+<div class="relative w-64 ml-auto mr-8">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-background border border-outline rounded-full py-2 pl-10 pr-4 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search crops, markets..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<span class="text-label-sm font-label-sm text-primary flex items-center"><span class="mr-1 text-[10px]">●</span> ML Model Active</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">settings</span></button>
+</div>
+</header>
+<!-- Top Nav (Mobile) -->
+<header class="md:hidden flex items-center justify-between px-margin_mobile py-4 bg-surface-container-low sticky top-0 z-20">
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-primary font-bold">KisanDirect</h1>
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant"><span class="material-symbols-outlined">notifications</span></button>
+</div>
+</header>
+<div class="p-margin_mobile md:p-margin_desktop flex-1 pb-24 md:pb-margin_desktop">
+<div class="max-w-5xl mx-auto space-y-gutter">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
+<div>
+<h2 class="text-display-lg font-display-lg text-on-surface md:text-display-lg text-[32px]">Farmer Profile</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">Manage your farm identity and subscriptions.</p>
+</div>
+<button class="mt-4 md:mt-0 bg-primary text-on-primary font-bold py-3 px-6 rounded-lg text-label-md font-label-md hover:bg-primary-fixed-dim transition-colors flex items-center justify-center w-full md:w-auto shadow-[0_0_15px_rgba(105,201,107,0.3)] hover:shadow-[0_0_20px_rgba(105,201,107,0.5)]">
+<span class="material-symbols-outlined mr-2">edit</span> Edit Profile
+                    </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Profile Card (Left Column) -->
+<div class="md:col-span-5 lg:col-span-4 bg-[#0B1A2B] rounded-xl p-6 border border-surface-container-high relative overflow-hidden group">
+<!-- Subtle glassmorphism gradient bg -->
+<div class="absolute inset-0 bg-gradient-to-br from-[#102F31]/30 to-transparent opacity-50 z-0 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="relative mb-6">
+<div class="absolute inset-0 bg-primary rounded-full blur-md opacity-30"></div>
+<img class="w-32 h-32 rounded-full object-cover border-2 border-primary relative z-10 shadow-lg" data-alt="A highly detailed close-up portrait of an experienced Indian farmer named Ramesh. He wears a clean, simple collared shirt. The lighting is dramatic, highlighting the texture of his face against a dark, moody background. A subtle, high-tech glowing green halo surrounds him, suggesting modern agro-intelligence integration. Professional, premium corporate agricultural style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuER21RLsRH_0WCHMXNp-fFeL7b0QrbtvnKM9HkfiNM9noVgboTceaepziIJbsoySwcxDYFjKXxOEWpB0VAsiI8j8HOTb2Myx06jemZruaCFalAd8ySCTwcj93S9wuuflydiHBdndAo89Epu9w7J4zxk5hzEZwCWNIhqAV9fgZk6UZ4ePx1D-Zd2DMvCgRwW3MRYRG2phzvHT2r6Ry6KSxMJb0mWhj8YAXHO78GGZQQoovN2JXb44N"/>
+<button class="absolute bottom-0 right-0 bg-surface-container text-on-surface p-2 rounded-full border border-outline-variant hover:bg-surface-variant transition-colors z-20">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<h3 class="text-headline-lg font-headline-lg text-on-surface mb-1">Ramesh Kumar</h3>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-4">Green Acres Farm</p>
+<div class="flex items-center justify-center space-x-2 text-secondary mb-6 bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-label-md text-secondary-fixed">4.8</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">(124 Market Deals)</span>
+</div>
+<div class="w-full space-y-4 pt-6 border-t border-outline-variant/30 text-left">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant mr-3 w-6 text-center">location_on</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Location</p>
+<p class="text-body-md font-body-md text-on-surface">West Bengal, India</p>
+</div>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant mr-3 w-6 text-center">calendar_month</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Member Since</p>
+<p class="text-body-md font-body-md text-on-surface">March 2021</p>
+</div>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant mr-3 w-6 text-center">phone</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Contact</p>
+<p class="text-body-md font-body-md text-on-surface">+91 98765 43210</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Info & Subscription) -->
+<div class="md:col-span-7 lg:col-span-8 space-y-gutter">
+<!-- Farm Information Card -->
+<div class="bg-[#0B1A2B] rounded-xl p-6 border border-surface-container-high h-auto relative overflow-hidden">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-headline-md font-headline-md text-on-surface flex items-center">
+<span class="material-symbols-outlined text-primary mr-2">agriculture</span> Farm Information
+                                </h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Area -->
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant/20">
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Total Area</p>
+<p class="text-headline-md font-headline-md text-on-surface">15.5 <span class="text-body-md font-body-md text-on-surface-variant">Acres</span></p>
+</div>
+<!-- Soil Type -->
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant/20">
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Soil Type</p>
+<p class="text-headline-md font-headline-md text-on-surface">Alluvial <span class="text-body-md font-body-md text-on-surface-variant">(pH 6.8)</span></p>
+</div>
+</div>
+<div class="mt-6">
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-3 uppercase tracking-wider">Main Crops</p>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center space-x-2 bg-surface-container px-3 py-2 rounded-lg border border-outline-variant/50">
+<span class="material-symbols-outlined text-secondary">grass</span>
+<span class="text-body-md font-body-md text-on-surface">Rice (Paddy)</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface-container px-3 py-2 rounded-lg border border-outline-variant/50">
+<span class="material-symbols-outlined text-tertiary">spa</span>
+<span class="text-body-md font-body-md text-on-surface">Jute</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface-container px-3 py-2 rounded-lg border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary">local_florist</span>
+<span class="text-body-md font-body-md text-on-surface">Potato</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Subscription Card -->
+<div class="bg-gradient-to-r from-[#102F31] to-[#0B1A2B] rounded-xl p-6 border border-primary/20 relative overflow-hidden">
+<!-- Glowing background effect -->
+<div class="absolute right-0 top-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+<div>
+<div class="flex items-center space-x-2 mb-2">
+<h3 class="text-headline-md font-headline-md text-on-surface">KisanDirect Pro</h3>
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-0.5 rounded-sm tracking-wide">ACTIVE</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-md">Premium AI diagnostics, priority market access, and advanced weather forecasting.</p>
+</div>
+<div class="mt-4 sm:mt-0 text-left sm:text-right">
+<p class="text-headline-lg font-headline-lg text-primary font-bold">₹399</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">/ month</p>
+</div>
+</div>
+<div class="relative z-10 mt-6 pt-6 border-t border-outline-variant/30 flex justify-between items-center">
+<p class="text-label-md font-label-md text-on-surface-variant">Next billing cycle: <span class="text-on-surface">Oct 15, 2023</span></p>
+<button class="text-primary hover:text-primary-fixed-dim text-label-md font-label-md font-semibold transition-colors">Manage Plan</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low border-t border-surface-container flex justify-around items-center h-16 z-30 shadow-[0_-4px_10px_rgba(0,0,0,0.2)]">
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-xl mb-1">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-xl mb-1">storefront</span>
+<span class="text-[10px] font-medium">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-xl mb-1">psychology</span>
+<span class="text-[10px] font-medium">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-primary" href="#">
+<div class="px-4 py-1 bg-primary/20 rounded-full mb-1">
+<span class="material-symbols-outlined text-xl text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</nav>
+</body></html>

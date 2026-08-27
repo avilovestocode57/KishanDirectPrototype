@@ -1,0 +1,28 @@
+{
+  "id": 1787858637598,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"name\":\"projects/2588230859836268722/screens/5098b0b65d704d4fad1ddb4c71e70f1c\",\"title\":\"KisanDirect Immersive Landing\",\"screenshot\":{\"name\":\"projects/2588230859836268722/files/4247552782891792408\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AEtjO1X7LRkQDPwU_xQu9snZO_Gt8xDFx_xvetBuhBzSNbWboBjhxl_m2D4t2nWH08oXM3jcC07_A7-DxPMzWmxfppRNKuj0rkIG24Iz83VkBTfB6GZ5DXH_1L31My3Z_A_WCFnZdpLaq_GqeU7WNdntZawcxImUkQXgsXMjGgwddzWBTQyehKRyCGlC3BixSdCWymPy7xbc50Wo9RYFe0RAI9PIMX8oEg72IZBUhXLfJ6e17_5aE6yhtBSG3g\"},\"htmlCode\":{\"name\":\"projects/2588230859836268722/files/17820480811454031869\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1YTBjNTFlNmM1ZWEwMWE2MmU0M2FhMjI0ZDE0EgsSBxCDlrzsjw0YAZIBIwoKcHJvamVjdF9pZBIVQhMyNTg4MjMwODU5ODM2MjY4NzIy&filename=&opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"2688\",\"deviceType\":\"DESKTOP\"}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "deviceType": "DESKTOP",
+      "height": "2688",
+      "htmlCode": {
+        "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1YTBjNTFlNmM1ZWEwMWE2MmU0M2FhMjI0ZDE0EgsSBxCDlrzsjw0YAZIBIwoKcHJvamVjdF9pZBIVQhMyNTg4MjMwODU5ODM2MjY4NzIy&filename=&opi=89354086",
+        "mimeType": "text/html",
+        "name": "projects/2588230859836268722/files/17820480811454031869"
+      },
+      "name": "projects/2588230859836268722/screens/5098b0b65d704d4fad1ddb4c71e70f1c",
+      "screenshot": {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida/AEtjO1X7LRkQDPwU_xQu9snZO_Gt8xDFx_xvetBuhBzSNbWboBjhxl_m2D4t2nWH08oXM3jcC07_A7-DxPMzWmxfppRNKuj0rkIG24Iz83VkBTfB6GZ5DXH_1L31My3Z_A_WCFnZdpLaq_GqeU7WNdntZawcxImUkQXgsXMjGgwddzWBTQyehKRyCGlC3BixSdCWymPy7xbc50Wo9RYFe0RAI9PIMX8oEg72IZBUhXLfJ6e17_5aE6yhtBSG3g",
+        "name": "projects/2588230859836268722/files/4247552782891792408"
+      },
+      "title": "KisanDirect Immersive Landing",
+      "width": "2560"
+    }
+  }
+}

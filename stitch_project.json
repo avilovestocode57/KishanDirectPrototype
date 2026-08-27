@@ -1,0 +1,231 @@
+{
+  "id": 1787858639367,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"name\":\"projects/2588230859836268722\",\"title\":\"KisanDirect Role Selection Screen\",\"visibility\":\"PRIVATE\",\"createTime\":\"2026-08-27T19:03:26.476892Z\",\"updateTime\":\"2026-08-27T19:27:01.727629Z\",\"projectType\":\"TEXT_TO_UI_PRO\",\"thumbnailScreenshot\":{\"name\":\"projects/2588230859836268722/screens/cab2b2e36ff34967baedb6dbf6396ae3/fileEntries/screenshot\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AEtjO1WvGqHA6SrP2Ot44pPR2zmJTq4PVezU__wyJitOuoAl0fF3mRAHywfFouyjPaNMhmMG-FeKli0_XrhbDdhva-taFj35mPDuxEhusDzUvxEIMkQNunmTI3H8DQTZwvK-fDTpsuAWPVFTD_4YCY5YJZp5fFBAWiibPd0q-d5m4itTnmA8mdnjh0Y2R0zmrOHztbQoJFtWFK9SewORisfQtSFvnXXbYZAPV196sOn-5-QPsF8a9qHz0fZJRJI\"},\"origin\":\"STITCH\",\"deviceType\":\"DESKTOP\",\"designTheme\":{\"colorMode\":\"DARK\",\"font\":\"INTER\",\"roundness\":\"ROUND_EIGHT\",\"customColor\":\"#69c96b\",\"headlineFont\":\"INTER\",\"bodyFont\":\"INTER\",\"labelFont\":\"INTER\",\"namedColors\":{\"inverse_primary\":\"#006e1f\",\"primary_container\":\"#69c96b\",\"secondary\":\"#adccce\",\"on_error_container\":\"#ffdad6\",\"on_primary_fixed_variant\":\"#005315\",\"on_tertiary_fixed\":\"#231b00\",\"secondary_fixed_dim\":\"#adccce\",\"on_primary_container\":\"#005215\",\"outline_variant\":\"#3f4a3d\",\"surface_container_lowest\":\"#010f1f\",\"on_secondary\":\"#173537\",\"secondary_fixed\":\"#c8e9eb\",\"on_error\":\"#690005\",\"inverse_on_surface\":\"#233143\",\"outline\":\"#899485\",\"on_secondary_fixed\":\"#002022\",\"surface_variant\":\"#283648\",\"background\":\"#051425\",\"surface_container_high\":\"#1d2b3d\",\"on_background\":\"#d5e3fb\",\"on_surface_variant\":\"#becab9\",\"surface_bright\":\"#2c3a4c\",\"on_secondary_container\":\"#9cbbbd\",\"error\":\"#ffb4ab\",\"on_tertiary\":\"#3c2f00\",\"surface_dim\":\"#051425\",\"primary_fixed\":\"#96f995\",\"on_tertiary_container\":\"#564400\",\"surface_container_low\":\"#0e1c2d\",\"primary_fixed_dim\":\"#7bdc7b\",\"tertiary\":\"#f7cc35\",\"on_tertiary_fixed_variant\":\"#574500\",\"surface_container_highest\":\"#283648\",\"tertiary_container\":\"#d9b013\",\"on_primary_fixed\":\"#002204\",\"on_secondary_fixed_variant\":\"#2e4c4e\",\"tertiary_fixed\":\"#ffe086\",\"surface_tint\":\"#7bdc7b\",\"on_primary\":\"#00390c\",\"error_container\":\"#93000a\",\"surface_container\":\"#122032\",\"surface\":\"#051425\",\"secondary_container\":\"#2e4c4e\",\"primary\":\"#84e684\",\"on_surface\":\"#d5e3fb\",\"tertiary_fixed_dim\":\"#edc22b\",\"inverse_surface\":\"#d5e3fb\"},\"designMd\":\"---\\nname: Agro-Precision Interface\\ncolors:\\n  surface: '#051425'\\n  surface-dim: '#051425'\\n  surface-bright: '#2c3a4c'\\n  surface-container-lowest: '#010f1f'\\n  surface-container-low: '#0e1c2d'\\n  surface-container: '#122032'\\n  surface-container-high: '#1d2b3d'\\n  surface-container-highest: '#283648'\\n  on-surface: '#d5e3fb'\\n  on-surface-variant: '#becab9'\\n  inverse-surface: '#d5e3fb'\\n  inverse-on-surface: '#233143'\\n  outline: '#899485'\\n  outline-variant: '#3f4a3d'\\n  surface-tint: '#7bdc7b'\\n  primary: '#84e684'\\n  on-primary: '#00390c'\\n  primary-container: '#69c96b'\\n  on-primary-container: '#005215'\\n  inverse-primary: '#006e1f'\\n  secondary: '#adccce'\\n  on-secondary: '#173537'\\n  secondary-container: '#2e4c4e'\\n  on-secondary-container: '#9cbbbd'\\n  tertiary: '#f7cc35'\\n  on-tertiary: '#3c2f00'\\n  tertiary-container: '#d9b013'\\n  on-tertiary-container: '#564400'\\n  error: '#ffb4ab'\\n  on-error: '#690005'\\n  error-container: '#93000a'\\n  on-error-container: '#ffdad6'\\n  primary-fixed: '#96f995'\\n  primary-fixed-dim: '#7bdc7b'\\n  on-primary-fixed: '#002204'\\n  on-primary-fixed-variant: '#005315'\\n  secondary-fixed: '#c8e9eb'\\n  secondary-fixed-dim: '#adccce'\\n  on-secondary-fixed: '#002022'\\n  on-secondary-fixed-variant: '#2e4c4e'\\n  tertiary-fixed: '#ffe086'\\n  tertiary-fixed-dim: '#edc22b'\\n  on-tertiary-fixed: '#231b00'\\n  on-tertiary-fixed-variant: '#574500'\\n  background: '#051425'\\n  on-background: '#d5e3fb'\\n  surface-variant: '#283648'\\ntypography:\\n  headline-xl:\\n    fontFamily: Inter\\n    fontSize: 40px\\n    fontWeight: '700'\\n    lineHeight: 48px\\n    letterSpacing: -0.02em\\n  headline-lg:\\n    fontFamily: Inter\\n    fontSize: 32px\\n    fontWeight: '600'\\n    lineHeight: 40px\\n    letterSpacing: -0.01em\\n  headline-lg-mobile:\\n    fontFamily: Inter\\n    fontSize: 24px\\n    fontWeight: '600'\\n    lineHeight: 32px\\n  headline-md:\\n    fontFamily: Inter\\n    fontSize: 24px\\n    fontWeight: '600'\\n    lineHeight: 32px\\n  body-lg:\\n    fontFamily: Inter\\n    fontSize: 18px\\n    fontWeight: '400'\\n    lineHeight: 28px\\n  body-md:\\n    fontFamily: Inter\\n    fontSize: 16px\\n    fontWeight: '400'\\n    lineHeight: 24px\\n  label-md:\\n    fontFamily: Inter\\n    fontSize: 14px\\n    fontWeight: '500'\\n    lineHeight: 20px\\n    letterSpacing: 0.01em\\n  label-sm:\\n    fontFamily: Inter\\n    fontSize: 12px\\n    fontWeight: '600'\\n    lineHeight: 16px\\n    letterSpacing: 0.05em\\n  data-mono:\\n    fontFamily: Inter\\n    fontSize: 16px\\n    fontWeight: '600'\\n    lineHeight: 24px\\n    letterSpacing: -0.01em\\nrounded:\\n  sm: 0.25rem\\n  DEFAULT: 0.5rem\\n  md: 0.75rem\\n  lg: 1rem\\n  xl: 1.5rem\\n  full: 9999px\\nspacing:\\n  unit: 4px\\n  container-padding-mobile: 16px\\n  container-padding-desktop: 32px\\n  gutter: 16px\\n  stack-sm: 8px\\n  stack-md: 16px\\n  stack-lg: 32px\\n---\\n\\n## Brand & Style\\n\\nThe design system is engineered for an agricultural tech environment that balances rugged utility with high-end data precision. The brand personality is authoritative and tech-forward, aimed at modernizing the agricultural landscape for farmers and enterprise stakeholders.\\n\\nThe visual style utilizes a **Modern-Corporate** approach with a **Tactile Dark Mode** influence. It emphasizes legibility in variable lighting conditions and a sense of \\\"digital machinery.\\\" The interface should feel like a high-performance cockpit—reliable, calm, and deeply professional. Heavy use of whitespace (or rather, \\\"dark-space\\\") and thin, intentional borders create a structured, professional environment that favors data density without visual clutter.\\n\\n## Colors\\n\\nThe color palette is rooted in deep, earth-toned nocturnals to reduce eye strain and provide high contrast for critical data.\\n\\n- **Primary Green (#69C96B):** Represents growth and health. Use this for primary actions, success states, and key data visualizations.\\n- **Accent Yellow (#FFD33D):** Reserved for high-priority alerts, warnings, or highlighting specific \\\"Harvest-Ready\\\" status indicators.\\n- **Background & Surface:** The deep navy (#0B1A2B) serves as the foundation, while the dark teal (#102F31) defines cards and containers.\\n- **Borders (#285E4C):** A desaturated forest green used for structural definition, keeping the UI cohesive and grounded in the agricultural theme.\\n\\n## Typography\\n\\nThis design system utilizes **Inter** exclusively to maintain a clean, systematic appearance. \\n\\n- **Headlines:** Use Bold and Semi-Bold weights with slight negative letter-spacing to give a \\\"compact\\\" and technical feel.\\n- **Body Text:** Primarily uses the `text-muted` color to maintain hierarchy, switching to `text-primary` for active reading blocks.\\n- **Labels:** Small labels use a higher font weight and uppercase styling to denote metadata or secondary categorical info.\\n- **Data Display:** For numerical values (yields, pricing, coordinates), use the `data-mono` style to ensure tabular alignment and clarity.\\n\\n## Layout & Spacing\\n\\nThe layout follows a **Fluid Grid** model with strict vertical rhythm based on a 4px baseline.\\n\\n- **Desktop:** 12-column grid with 32px margins. \\n- **Mobile:** 4-column grid with 16px margins.\\n- **Rhythm:** Use \\\"Stack\\\" spacing for vertical relationships. `stack-sm` for related label/input pairs, `stack-md` for content blocks within cards, and `stack-lg` for section-level separation.\\n- **Density:** The system should support high-density views for data tables and map overlays, utilizing reduced padding (8px) in data-heavy components.\\n\\n## Elevation & Depth\\n\\nHierarchy is established through **Tonal Layering** and **Low-Contrast Outlines** rather than traditional shadows.\\n\\n- **Level 0 (Background):** #0B1A2B. The base canvas.\\n- **Level 1 (Surface/Cards):** #102F31. Used for primary content containers. These should feature a 1px solid border of #285E4C to define the edge.\\n- **Level 2 (Popovers/Modals):** A slightly lighter tint of the teal surface with a subtle 10% opacity Primary Green glow (blur: 20px) to indicate high-level interaction.\\n- **Depth:** Avoid heavy drop shadows. If necessary for floating action buttons, use a sharp 4px offset shadow in #000000 at 40% opacity to maintain the \\\"tech\\\" aesthetic.\\n\\n## Shapes\\n\\nThe design system employs a **Rounded** shape language to soften the technical nature of the application and make it feel more approachable.\\n\\n- **Primary Containers:** All cards and large layout containers use `rounded-xl` (1.5rem / 24px) to create a soft, modern frame.\\n- **Interactive Elements:** Buttons, inputs, and chips use a consistent 16px (rounded-lg) corner radius as specified.\\n- **Small Elements:** Tooltips and checkboxes use 4px (soft) rounding to maintain precision.\\n\\n## Components\\n\\n### Buttons\\n- **Primary:** Background #69C96B, Text #0B1A2B, Bold weight.\\n- **Secondary:** Transparent background, 1px Border #285E4C, Text #E8F3E8.\\n- **Warning:** Background #FFD33D, Text #0B1A2B.\\n\\n### Input Fields\\n- **Container:** Background #0B1A2B, 1px Border #285E4C.\\n- **Active State:** Border #69C96B with a 2px inner \\\"focus ring\\\" of the same color.\\n- **Placeholder:** Text #8FA99A.\\n\\n### Cards\\n- Surface color #102F31, 16px corner radius, 1px border #285E4C.\\n- Inner padding should be a consistent 24px for standard cards.\\n\\n### Chips/Badges\\n- Small, 12px font, 16px height.\\n- Use #285E4C as the background for neutral tags and #69C96B (at 20% opacity) with #69C96B text for success/active tags.\\n\\n### Specialized Components\\n- **Data Strips:** Thin horizontal rows for sensor data (Moisture, Temp, pH), featuring a small Primary Green sparkline.\\n- **Status Indicators:** A pulsing dot using Primary Green for \\\"Active\\\" and Accent Yellow for \\\"Maintenance Required.\\\"\",\"colorVariant\":\"FIDELITY\",\"overridePrimaryColor\":\"#69c96b\",\"overrideSecondaryColor\":\"#102f31\",\"overrideTertiaryColor\":\"#ffd33d\",\"overrideNeutralColor\":\"#0b1a2b\",\"spacingScale\":2,\"typography\":{\"headline-md\":{\"fontFamily\":\"Inter\",\"fontSize\":\"24px\",\"fontWeight\":\"600\",\"lineHeight\":\"32px\"},\"headline-lg-mobile\":{\"fontFamily\":\"Inter\",\"fontSize\":\"24px\",\"fontWeight\":\"600\",\"lineHeight\":\"32px\"},\"label-sm\":{\"fontFamily\":\"Inter\",\"fontSize\":\"12px\",\"fontWeight\":\"600\",\"lineHeight\":\"16px\",\"letterSpacing\":\"0.05em\"},\"data-mono\":{\"fontFamily\":\"Inter\",\"fontSize\":\"16px\",\"fontWeight\":\"600\",\"lineHeight\":\"24px\",\"letterSpacing\":\"-0.01em\"},\"headline-lg\":{\"fontFamily\":\"Inter\",\"fontSize\":\"32px\",\"fontWeight\":\"600\",\"lineHeight\":\"40px\",\"letterSpacing\":\"-0.01em\"},\"body-lg\":{\"fontFamily\":\"Inter\",\"fontSize\":\"18px\",\"fontWeight\":\"400\",\"lineHeight\":\"28px\"},\"body-md\":{\"fontFamily\":\"Inter\",\"fontSize\":\"16px\",\"fontWeight\":\"400\",\"lineHeight\":\"24px\"},\"headline-xl\":{\"fontFamily\":\"Inter\",\"fontSize\":\"40px\",\"fontWeight\":\"700\",\"lineHeight\":\"48px\",\"letterSpacing\":\"-0.02em\"},\"label-md\":{\"fontFamily\":\"Inter\",\"fontSize\":\"14px\",\"fontWeight\":\"500\",\"lineHeight\":\"20px\",\"letterSpacing\":\"0.01em\"}},\"spacing\":{\"stack-md\":\"16px\",\"stack-sm\":\"8px\",\"stack-lg\":\"32px\",\"container-padding-desktop\":\"32px\",\"container-padding-mobile\":\"16px\",\"unit\":\"4px\",\"gutter\":\"16px\"},\"headlineFontFamily\":\"Inter\",\"bodyFontFamily\":\"Inter\",\"labelFontFamily\":\"Inter\"},\"screenInstances\":[{\"id\":\"3c12c033b61b48308dad139cc933ccfc\",\"sourceScreen\":\"projects/2588230859836268722/screens/3c12c033b61b48308dad139cc933ccfc\",\"x\":1728,\"y\":796,\"width\":512,\"height\":686},{\"id\":\"4901fc8e66b447659d57175a61ba4c34\",\"sourceScreen\":\"projects/2588230859836268722/screens/4901fc8e66b447659d57175a61ba4c34\",\"y\":796,\"width\":512,\"height\":286},{\"id\":\"5098b0b65d704d4fad1ddb4c71e70f1c\",\"sourceScreen\":\"projects/2588230859836268722/screens/5098b0b65d704d4fad1ddb4c71e70f1c\",\"x\":2889,\"y\":796,\"width\":1280,\"height\":1339,\"isResized\":true},{\"id\":\"assets_0163448ca0744f4ebace1d31290725a8\",\"width\":960,\"height\":540,\"sourceAsset\":\"assets/0163448ca0744f4ebace1d31290725a8\",\"type\":\"DESIGN_SYSTEM_INSTANCE\"},{\"id\":\"c85741fe02af4afaae7b2038fd3c8b82\",\"sourceScreen\":\"projects/2588230859836268722/screens/c85741fe02af4afaae7b2038fd3c8b82\",\"x\":1152,\"y\":796,\"width\":512,\"height\":686},{\"id\":\"cab2b2e36ff34967baedb6dbf6396ae3\",\"sourceScreen\":\"projects/2588230859836268722/screens/cab2b2e36ff34967baedb6dbf6396ae3\",\"x\":1024,\"width\":1280,\"height\":516},{\"id\":\"d3477921cc7e4dbdb0e98d30a9ecf11f\",\"sourceScreen\":\"projects/2588230859836268722/screens/d3477921cc7e4dbdb0e98d30a9ecf11f\",\"x\":2304,\"y\":796,\"width\":512,\"height\":686},{\"id\":\"d79e7bca8d784857acdaa6d9a8ef490f\",\"sourceScreen\":\"projects/2588230859836268722/screens/d79e7bca8d784857acdaa6d9a8ef490f\",\"x\":576,\"y\":796,\"width\":512,\"height\":686}],\"metadata\":{\"userRole\":\"OWNER\"}}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "createTime": "2026-08-27T19:03:26.476892Z",
+      "designTheme": {
+        "bodyFont": "INTER",
+        "bodyFontFamily": "Inter",
+        "colorMode": "DARK",
+        "colorVariant": "FIDELITY",
+        "customColor": "#69c96b",
+        "designMd": "---\nname: Agro-Precision Interface\ncolors:\n  surface: '#051425'\n  surface-dim: '#051425'\n  surface-bright: '#2c3a4c'\n  surface-container-lowest: '#010f1f'\n  surface-container-low: '#0e1c2d'\n  surface-container: '#122032'\n  surface-container-high: '#1d2b3d'\n  surface-container-highest: '#283648'\n  on-surface: '#d5e3fb'\n  on-surface-variant: '#becab9'\n  inverse-surface: '#d5e3fb'\n  inverse-on-surface: '#233143'\n  outline: '#899485'\n  outline-variant: '#3f4a3d'\n  surface-tint: '#7bdc7b'\n  primary: '#84e684'\n  on-primary: '#00390c'\n  primary-container: '#69c96b'\n  on-primary-container: '#005215'\n  inverse-primary: '#006e1f'\n  secondary: '#adccce'\n  on-secondary: '#173537'\n  secondary-container: '#2e4c4e'\n  on-secondary-container: '#9cbbbd'\n  tertiary: '#f7cc35'\n  on-tertiary: '#3c2f00'\n  tertiary-container: '#d9b013'\n  on-tertiary-container: '#564400'\n  error: '#ffb4ab'\n  on-error: '#690005'\n  error-container: '#93000a'\n  on-error-container: '#ffdad6'\n  primary-fixed: '#96f995'\n  primary-fixed-dim: '#7bdc7b'\n  on-primary-fixed: '#002204'\n  on-primary-fixed-variant: '#005315'\n  secondary-fixed: '#c8e9eb'\n  secondary-fixed-dim: '#adccce'\n  on-secondary-fixed: '#002022'\n  on-secondary-fixed-variant: '#2e4c4e'\n  tertiary-fixed: '#ffe086'\n  tertiary-fixed-dim: '#edc22b'\n  on-tertiary-fixed: '#231b00'\n  on-tertiary-fixed-variant: '#574500'\n  background: '#051425'\n  on-background: '#d5e3fb'\n  surface-variant: '#283648'\ntypography:\n  headline-xl:\n    fontFamily: Inter\n    fontSize: 40px\n    fontWeight: '700'\n    lineHeight: 48px\n    letterSpacing: -0.02em\n  headline-lg:\n    fontFamily: Inter\n    fontSize: 32px\n    fontWeight: '600'\n    lineHeight: 40px\n    letterSpacing: -0.01em\n  headline-lg-mobile:\n    fontFamily: Inter\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n  headline-md:\n    fontFamily: Inter\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n  body-lg:\n    fontFamily: Inter\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 28px\n  body-md:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n  label-md:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '500'\n    lineHeight: 20px\n    letterSpacing: 0.01em\n  label-sm:\n    fontFamily: Inter\n    fontSize: 12px\n    fontWeight: '600'\n    lineHeight: 16px\n    letterSpacing: 0.05em\n  data-mono:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '600'\n    lineHeight: 24px\n    letterSpacing: -0.01em\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  unit: 4px\n  container-padding-mobile: 16px\n  container-padding-desktop: 32px\n  gutter: 16px\n  stack-sm: 8px\n  stack-md: 16px\n  stack-lg: 32px\n---\n\n## Brand & Style\n\nThe design system is engineered for an agricultural tech environment that balances rugged utility with high-end data precision. The brand personality is authoritative and tech-forward, aimed at modernizing the agricultural landscape for farmers and enterprise stakeholders.\n\nThe visual style utilizes a **Modern-Corporate** approach with a **Tactile Dark Mode** influence. It emphasizes legibility in variable lighting conditions and a sense of \"digital machinery.\" The interface should feel like a high-performance cockpit—reliable, calm, and deeply professional. Heavy use of whitespace (or rather, \"dark-space\") and thin, intentional borders create a structured, professional environment that favors data density without visual clutter.\n\n## Colors\n\nThe color palette is rooted in deep, earth-toned nocturnals to reduce eye strain and provide high contrast for critical data.\n\n- **Primary Green (#69C96B):** Represents growth and health. Use this for primary actions, success states, and key data visualizations.\n- **Accent Yellow (#FFD33D):** Reserved for high-priority alerts, warnings, or highlighting specific \"Harvest-Ready\" status indicators.\n- **Background & Surface:** The deep navy (#0B1A2B) serves as the foundation, while the dark teal (#102F31) defines cards and containers.\n- **Borders (#285E4C):** A desaturated forest green used for structural definition, keeping the UI cohesive and grounded in the agricultural theme.\n\n## Typography\n\nThis design system utilizes **Inter** exclusively to maintain a clean, systematic appearance. \n\n- **Headlines:** Use Bold and Semi-Bold weights with slight negative letter-spacing to give a \"compact\" and technical feel.\n- **Body Text:** Primarily uses the `text-muted` color to maintain hierarchy, switching to `text-primary` for active reading blocks.\n- **Labels:** Small labels use a higher font weight and uppercase styling to denote metadata or secondary categorical info.\n- **Data Display:** For numerical values (yields, pricing, coordinates), use the `data-mono` style to ensure tabular alignment and clarity.\n\n## Layout & Spacing\n\nThe layout follows a **Fluid Grid** model with strict vertical rhythm based on a 4px baseline.\n\n- **Desktop:** 12-column grid with 32px margins. \n- **Mobile:** 4-column grid with 16px margins.\n- **Rhythm:** Use \"Stack\" spacing for vertical relationships. `stack-sm` for related label/input pairs, `stack-md` for content blocks within cards, and `stack-lg` for section-level separation.\n- **Density:** The system should support high-density views for data tables and map overlays, utilizing reduced padding (8px) in data-heavy components.\n\n## Elevation & Depth\n\nHierarchy is established through **Tonal Layering** and **Low-Contrast Outlines** rather than traditional shadows.\n\n- **Level 0 (Background):** #0B1A2B. The base canvas.\n- **Level 1 (Surface/Cards):** #102F31. Used for primary content containers. These should feature a 1px solid border of #285E4C to define the edge.\n- **Level 2 (Popovers/Modals):** A slightly lighter tint of the teal surface with a subtle 10% opacity Primary Green glow (blur: 20px) to indicate high-level interaction.\n- **Depth:** Avoid heavy drop shadows. If necessary for floating action buttons, use a sharp 4px offset shadow in #000000 at 40% opacity to maintain the \"tech\" aesthetic.\n\n## Shapes\n\nThe design system employs a **Rounded** shape language to soften the technical nature of the application and make it feel more approachable.\n\n- **Primary Containers:** All cards and large layout containers use `rounded-xl` (1.5rem / 24px) to create a soft, modern frame.\n- **Interactive Elements:** Buttons, inputs, and chips use a consistent 16px (rounded-lg) corner radius as specified.\n- **Small Elements:** Tooltips and checkboxes use 4px (soft) rounding to maintain precision.\n\n## Components\n\n### Buttons\n- **Primary:** Background #69C96B, Text #0B1A2B, Bold weight.\n- **Secondary:** Transparent background, 1px Border #285E4C, Text #E8F3E8.\n- **Warning:** Background #FFD33D, Text #0B1A2B.\n\n### Input Fields\n- **Container:** Background #0B1A2B, 1px Border #285E4C.\n- **Active State:** Border #69C96B with a 2px inner \"focus ring\" of the same color.\n- **Placeholder:** Text #8FA99A.\n\n### Cards\n- Surface color #102F31, 16px corner radius, 1px border #285E4C.\n- Inner padding should be a consistent 24px for standard cards.\n\n### Chips/Badges\n- Small, 12px font, 16px height.\n- Use #285E4C as the background for neutral tags and #69C96B (at 20% opacity) with #69C96B text for success/active tags.\n\n### Specialized Components\n- **Data Strips:** Thin horizontal rows for sensor data (Moisture, Temp, pH), featuring a small Primary Green sparkline.\n- **Status Indicators:** A pulsing dot using Primary Green for \"Active\" and Accent Yellow for \"Maintenance Required.\"",
+        "font": "INTER",
+        "headlineFont": "INTER",
+        "headlineFontFamily": "Inter",
+        "labelFont": "INTER",
+        "labelFontFamily": "Inter",
+        "namedColors": {
+          "background": "#051425",
+          "error": "#ffb4ab",
+          "error_container": "#93000a",
+          "inverse_on_surface": "#233143",
+          "inverse_primary": "#006e1f",
+          "inverse_surface": "#d5e3fb",
+          "on_background": "#d5e3fb",
+          "on_error": "#690005",
+          "on_error_container": "#ffdad6",
+          "on_primary": "#00390c",
+          "on_primary_container": "#005215",
+          "on_primary_fixed": "#002204",
+          "on_primary_fixed_variant": "#005315",
+          "on_secondary": "#173537",
+          "on_secondary_container": "#9cbbbd",
+          "on_secondary_fixed": "#002022",
+          "on_secondary_fixed_variant": "#2e4c4e",
+          "on_surface": "#d5e3fb",
+          "on_surface_variant": "#becab9",
+          "on_tertiary": "#3c2f00",
+          "on_tertiary_container": "#564400",
+          "on_tertiary_fixed": "#231b00",
+          "on_tertiary_fixed_variant": "#574500",
+          "outline": "#899485",
+          "outline_variant": "#3f4a3d",
+          "primary": "#84e684",
+          "primary_container": "#69c96b",
+          "primary_fixed": "#96f995",
+          "primary_fixed_dim": "#7bdc7b",
+          "secondary": "#adccce",
+          "secondary_container": "#2e4c4e",
+          "secondary_fixed": "#c8e9eb",
+          "secondary_fixed_dim": "#adccce",
+          "surface": "#051425",
+          "surface_bright": "#2c3a4c",
+          "surface_container": "#122032",
+          "surface_container_high": "#1d2b3d",
+          "surface_container_highest": "#283648",
+          "surface_container_low": "#0e1c2d",
+          "surface_container_lowest": "#010f1f",
+          "surface_dim": "#051425",
+          "surface_tint": "#7bdc7b",
+          "surface_variant": "#283648",
+          "tertiary": "#f7cc35",
+          "tertiary_container": "#d9b013",
+          "tertiary_fixed": "#ffe086",
+          "tertiary_fixed_dim": "#edc22b"
+        },
+        "overrideNeutralColor": "#0b1a2b",
+        "overridePrimaryColor": "#69c96b",
+        "overrideSecondaryColor": "#102f31",
+        "overrideTertiaryColor": "#ffd33d",
+        "roundness": "ROUND_EIGHT",
+        "spacing": {
+          "container-padding-desktop": "32px",
+          "container-padding-mobile": "16px",
+          "gutter": "16px",
+          "stack-lg": "32px",
+          "stack-md": "16px",
+          "stack-sm": "8px",
+          "unit": "4px"
+        },
+        "spacingScale": 2,
+        "typography": {
+          "body-lg": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "lineHeight": "28px"
+          },
+          "body-md": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "24px"
+          },
+          "data-mono": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "fontWeight": "600",
+            "letterSpacing": "-0.01em",
+            "lineHeight": "24px"
+          },
+          "headline-lg": {
+            "fontFamily": "Inter",
+            "fontSize": "32px",
+            "fontWeight": "600",
+            "letterSpacing": "-0.01em",
+            "lineHeight": "40px"
+          },
+          "headline-lg-mobile": {
+            "fontFamily": "Inter",
+            "fontSize": "24px",
+            "fontWeight": "600",
+            "lineHeight": "32px"
+          },
+          "headline-md": {
+            "fontFamily": "Inter",
+            "fontSize": "24px",
+            "fontWeight": "600",
+            "lineHeight": "32px"
+          },
+          "headline-xl": {
+            "fontFamily": "Inter",
+            "fontSize": "40px",
+            "fontWeight": "700",
+            "letterSpacing": "-0.02em",
+            "lineHeight": "48px"
+          },
+          "label-md": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "fontWeight": "500",
+            "letterSpacing": "0.01em",
+            "lineHeight": "20px"
+          },
+          "label-sm": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "fontWeight": "600",
+            "letterSpacing": "0.05em",
+            "lineHeight": "16px"
+          }
+        }
+      },
+      "deviceType": "DESKTOP",
+      "metadata": {
+        "userRole": "OWNER"
+      },
+      "name": "projects/2588230859836268722",
+      "origin": "STITCH",
+      "projectType": "TEXT_TO_UI_PRO",
+      "screenInstances": [
+        {
+          "height": 686,
+          "id": "3c12c033b61b48308dad139cc933ccfc",
+          "sourceScreen": "projects/2588230859836268722/screens/3c12c033b61b48308dad139cc933ccfc",
+          "width": 512,
+          "x": 1728,
+          "y": 796
+        },
+        {
+          "height": 286,
+          "id": "4901fc8e66b447659d57175a61ba4c34",
+          "sourceScreen": "projects/2588230859836268722/screens/4901fc8e66b447659d57175a61ba4c34",
+          "width": 512,
+          "y": 796
+        },
+        {
+          "height": 1339,
+          "id": "5098b0b65d704d4fad1ddb4c71e70f1c",
+          "isResized": true,
+          "sourceScreen": "projects/2588230859836268722/screens/5098b0b65d704d4fad1ddb4c71e70f1c",
+          "width": 1280,
+          "x": 2889,
+          "y": 796
+        },
+        {
+          "height": 540,
+          "id": "assets_0163448ca0744f4ebace1d31290725a8",
+          "sourceAsset": "assets/0163448ca0744f4ebace1d31290725a8",
+          "type": "DESIGN_SYSTEM_INSTANCE",
+          "width": 960
+        },
+        {
+          "height": 686,
+          "id": "c85741fe02af4afaae7b2038fd3c8b82",
+          "sourceScreen": "projects/2588230859836268722/screens/c85741fe02af4afaae7b2038fd3c8b82",
+          "width": 512,
+          "x": 1152,
+          "y": 796
+        },
+        {
+          "height": 516,
+          "id": "cab2b2e36ff34967baedb6dbf6396ae3",
+          "sourceScreen": "projects/2588230859836268722/screens/cab2b2e36ff34967baedb6dbf6396ae3",
+          "width": 1280,
+          "x": 1024
+        },
+        {
+          "height": 686,
+          "id": "d3477921cc7e4dbdb0e98d30a9ecf11f",
+          "sourceScreen": "projects/2588230859836268722/screens/d3477921cc7e4dbdb0e98d30a9ecf11f",
+          "width": 512,
+          "x": 2304,
+          "y": 796
+        },
+        {
+          "height": 686,
+          "id": "d79e7bca8d784857acdaa6d9a8ef490f",
+          "sourceScreen": "projects/2588230859836268722/screens/d79e7bca8d784857acdaa6d9a8ef490f",
+          "width": 512,
+          "x": 576,
+          "y": 796
+        }
+      ],
+      "thumbnailScreenshot": {
+        "downloadUrl": "https://lh3.googleusercontent.com/aida/AEtjO1WvGqHA6SrP2Ot44pPR2zmJTq4PVezU__wyJitOuoAl0fF3mRAHywfFouyjPaNMhmMG-FeKli0_XrhbDdhva-taFj35mPDuxEhusDzUvxEIMkQNunmTI3H8DQTZwvK-fDTpsuAWPVFTD_4YCY5YJZp5fFBAWiibPd0q-d5m4itTnmA8mdnjh0Y2R0zmrOHztbQoJFtWFK9SewORisfQtSFvnXXbYZAPV196sOn-5-QPsF8a9qHz0fZJRJI",
+        "name": "projects/2588230859836268722/screens/cab2b2e36ff34967baedb6dbf6396ae3/fileEntries/screenshot"
+      },
+      "title": "KisanDirect Role Selection Screen",
+      "updateTime": "2026-08-27T19:27:01.727629Z",
+      "visibility": "PRIVATE"
+    }
+  }
+}

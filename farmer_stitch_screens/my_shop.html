@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KisanDirect - My Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "on-primary-fixed-variant": "#005315",
+                            "outline": "#899485",
+                            "on-primary-container": "#005215",
+                            "on-primary-fixed": "#002204",
+                            "on-secondary": "#3c2f00",
+                            "on-tertiary": "#173537",
+                            "surface-tint": "#7bdc7b",
+                            "on-primary": "#00390c",
+                            "surface-container-highest": "#283642",
+                            "surface-bright": "#2d3b47",
+                            "surface-variant": "#283642",
+                            "tertiary-container": "#9bbabc",
+                            "on-surface": "#d5e4f4",
+                            "secondary-fixed": "#ffe086",
+                            "on-tertiary-fixed-variant": "#2e4c4e",
+                            "surface": "#061520",
+                            "surface-container-low": "#0e1d28",
+                            "tertiary": "#b6d6d8",
+                            "secondary-container": "#cfa700",
+                            "surface-container-lowest": "#020f1a",
+                            "secondary-fixed-dim": "#edc22b",
+                            "error": "#ffb4ab",
+                            "primary-fixed-dim": "#7bdc7b",
+                            "on-secondary-container": "#4e3e00",
+                            "on-error-container": "#ffdad6",
+                            "on-tertiary-fixed": "#002022",
+                            "primary-container": "#69c96b",
+                            "primary-fixed": "#96f995",
+                            "inverse-surface": "#d5e4f4",
+                            "inverse-on-surface": "#24323e",
+                            "error-container": "#93000a",
+                            "outline-variant": "#3f4a3d",
+                            "tertiary-fixed": "#c8e9eb",
+                            "on-tertiary-container": "#2d4b4d",
+                            "on-secondary-fixed": "#231b00",
+                            "background": "#061520",
+                            "on-error": "#690005",
+                            "on-surface-variant": "#becab9",
+                            "surface-container": "#13212c",
+                            "primary": "#84e684",
+                            "inverse-primary": "#006e1f",
+                            "secondary": "#edc22b",
+                            "surface-container-high": "#1d2b37",
+                            "surface-dim": "#061520",
+                            "on-background": "#d5e4f4",
+                            "on-secondary-fixed-variant": "#574500",
+                            "tertiary-fixed-dim": "#adccce"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "margin_mobile": "16px",
+                            "gutter": "24px",
+                            "sidebar_width": "280px",
+                            "margin_desktop": "32px",
+                            "stack_md": "16px",
+                            "stack_lg": "32px",
+                            "stack_sm": "8px"
+                    },
+                    "fontFamily": {
+                            "label-md": [
+                                    "Inter"
+                            ],
+                            "label-sm": [
+                                    "Inter"
+                            ],
+                            "headline-lg-mobile": [
+                                    "Inter"
+                            ],
+                            "body-lg": [
+                                    "Inter"
+                            ],
+                            "display-lg": [
+                                    "Inter"
+                            ],
+                            "headline-lg": [
+                                    "Inter"
+                            ],
+                            "body-md": [
+                                    "Inter"
+                            ],
+                            "headline-md": [
+                                    "Inter"
+                            ]
+                    },
+                    "fontSize": {
+                            "label-md": [
+                                    "14px",
+                                    {
+                                            "lineHeight": "20px",
+                                            "letterSpacing": "0.05em",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "label-sm": [
+                                    "12px",
+                                    {
+                                            "lineHeight": "16px",
+                                            "fontWeight": "500"
+                                    }
+                            ],
+                            "headline-lg-mobile": [
+                                    "24px",
+                                    {
+                                            "lineHeight": "32px",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "body-lg": [
+                                    "18px",
+                                    {
+                                            "lineHeight": "28px",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "display-lg": [
+                                    "48px",
+                                    {
+                                            "lineHeight": "56px",
+                                            "letterSpacing": "-0.02em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "headline-lg": [
+                                    "32px",
+                                    {
+                                            "lineHeight": "40px",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "body-md": [
+                                    "16px",
+                                    {
+                                            "lineHeight": "24px",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "headline-md": [
+                                    "24px",
+                                    {
+                                            "lineHeight": "32px",
+                                            "fontWeight": "600"
+                                    }
+                            ]
+                    }
+            },
+                },
+        }
+    </script>
+<style>
+        .bioluminescent-glow {
+            box-shadow: 0 0 15px rgba(105, 201, 107, 0.2);
+        }
+        .bioluminescent-glow-active {
+            box-shadow: 0 0 25px rgba(105, 201, 107, 0.4);
+        }
+        .glassmorphism-card {
+            background: linear-gradient(135deg, rgba(16, 47, 49, 0.7) 0%, rgba(11, 26, 43, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(105, 201, 107, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-surface fixed left-0 top-0 h-full w-sidebar_width hidden md:flex flex-col py-stack_lg px-stack_md border-r border-surface-container z-20">
+<div class="flex items-center gap-3 mb-10 pl-2">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<img alt="Farmer Profile" class="w-full h-full object-cover rounded-full" data-alt="A macro shot of a single, vibrant green sprout emerging from dark, rich soil, symbolizing agricultural growth and intelligence. High contrast, studio lighting, deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY-KTOHw13DE3KRs7-vUYvHuQU-mNUBxtMTmWupjnY86-geuT7-6IONJ9Xky-WEIBDW5f-8myz5CjApxZK8IQHMee2LYgQNZRBg7j7NaETxcb54ONXdqnzh2ryTlEo7aOiUHCjez3WUVtn_seRUop1dYS6Im3k7Qv8aFC4OBO4KOQj0HQzImKVT5tiBUCJ3ZkKYsLY09ZcVIYtkz4wOQOZwvqoTZ1kX-ovKzsHDRaDXOzgjWqPWhrv"/>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary">KisanDirect</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Agro-Intelligence</p>
+</div>
+</div>
+<ul class="flex-1 space-y-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary dark:text-primary font-bold border-r-4 border-primary bg-surface-container transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="text-label-md font-label-md">My Shop</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-label-md font-label-md">Products</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="text-label-md font-label-md">Demand Forecast</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="text-label-md font-label-md">Crop Recommendations</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-label-md font-label-md">Orders</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+<span class="text-label-md font-label-md">Enterprise Requirements</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-primary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-sidebar_width h-full w-full">
+<!-- TopAppBar -->
+<header class="bg-surface-container-low dark:bg-surface-container-low flex justify-between items-center h-16 w-full pr-margin_desktop pl-margin_mobile md:pl-gutter shrink-0 z-10 sticky top-0 border-b border-surface-container">
+<div class="flex items-center md:hidden">
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-surface">KisanDirect</h1>
+</div>
+<div class="hidden md:flex flex-1 max-w-md mx-auto justify-end">
+<!-- Search bar would go here if not on right -->
+</div>
+<div class="flex items-center gap-4 ml-auto">
+<div class="relative hidden sm:block">
+<input class="bg-surface text-on-surface border border-outline rounded-full py-1.5 pl-4 pr-10 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 text-body-md font-body-md transition-all" placeholder="Search products..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-on-surface-variant pointer-events-none" data-icon="search">search</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary font-label-sm text-label-sm hidden lg:block mr-4">● ML Model Active</span>
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden ml-2 border border-outline">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A headshot of a proud Indian farmer wearing traditional attire, looking directly at the camera with a confident smile. Soft, natural outdoor lighting, shallow depth of field, vivid earthy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD27BjCpByPH7bmMkph6lIX1qDjK368TmgPcl_g4VYLRd87lvXfqVRjt4WgDf3Brutcjaul8lBbeVP8lsuWsZxD-iBkjOr0eDVnYlKvv1Gn9SiwUYHCJ_JAE2eiUW2mOo0GvS0zlNUm6rIrpTF1uchnx4I1ur5bPSniD5o6muaywEkq3m4l7cqtLaEjwKnz3SxBZ87Gd7bAp77f_BTETXevUaTsF8osqHJJbffWz9lHkYRNhSupHSg0"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-margin_mobile md:p-margin_desktop bg-background pb-24 md:pb-margin_desktop">
+<div class="max-w-7xl mx-auto space-y-stack_lg">
+<!-- Page Header -->
+<div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-background">My Shop</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Your public storefront on KisanDirect.</p>
+</div>
+<!-- Shop Profile Card (Glassmorphism) -->
+<div class="glassmorphism-card rounded-xl p-gutter flex flex-col md:flex-row gap-gutter items-start md:items-center relative overflow-hidden">
+<!-- Subtle background glow -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary opacity-5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-xl border-2 border-outline-variant overflow-hidden shrink-0 shadow-lg">
+<img alt="Farm Banner" class="w-full h-full object-cover" data-alt="A cinematic wide shot of a lush, thriving vegetable farm in West Bengal, India. Rows of healthy crops under a dramatic, vibrant sunset sky. High dynamic range, rich greens and warm oranges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBflHrPI_5PMU62px64QpuEFN2BeXdNwxUxYmHlOwXeMgiZSJcMq6Bd2bePkE1DajLXzyUbC9So_syri22gfG8tMwAGI6KVlbz5d7ALB1vqn8LyW4AMFETsQ_BzzRGu0rYwHJc6s3z0qICdfJgzU_8gtYsX0UgL1FxEtqntZizdBzMowTI11rzwBTaRcbOo47YhwRGQqRTJPrvfIn2B7xdsbw6fXpjs1k6F4ZvTHuIWvDv9Hgx-De4c"/>
+</div>
+<div class="flex-1 space-y-2">
+<h3 class="text-headline-md font-headline-md text-on-surface font-bold">Green Valley Farms</h3>
+<div class="flex flex-wrap items-center gap-4 text-label-md font-label-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary" data-icon="location_on" style="font-size: 18px;">location_on</span> West Bengal, India</span>
+<span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined" data-icon="star" data-weight="fill" style="font-size: 18px;">star</span> 4.8 (124 Reviews)</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary" data-icon="inventory_2" style="font-size: 18px;">inventory_2</span> 12 Active Products</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl mt-2 line-clamp-2">Specializing in organic, high-yield root vegetables and premium grains. Utilizing smart-irrigation for sustainable growth.</p>
+</div>
+<div class="flex flex-col gap-3 w-full md:w-auto shrink-0 mt-4 md:mt-0 z-10">
+<button class="bg-primary text-on-primary-fixed w-full md:w-auto px-6 py-3 rounded-lg font-label-md text-label-md font-bold hover:bg-primary-fixed-dim transition-colors shadow-[0_0_15px_rgba(105,201,107,0.3)] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span> View Public Shop
+                        </button>
+<button class="border border-primary text-primary bg-[#102F31] w-full md:w-auto px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="edit">edit</span> Edit Shop Profile
+                        </button>
+</div>
+</div>
+<!-- Products Section Header -->
+<div class="flex justify-between items-end border-b border-surface-container pb-4 pt-4">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-background">Your Products</h3>
+</div>
+<button class="bg-primary text-on-primary-fixed px-5 py-2.5 rounded-lg font-label-md text-label-md font-bold hover:bg-primary-fixed-dim transition-colors flex items-center gap-2 bioluminescent-glow hover:bioluminescent-glow-active">
+<span class="material-symbols-outlined" data-icon="add">add</span> Add Product
+                    </button>
+</div>
+<!-- Products Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Product Card 1: Potato -->
+<div class="bg-surface-container-low rounded-xl border border-surface-container overflow-hidden hover:border-primary transition-colors group relative">
+<div class="absolute top-3 right-3 bg-surface-container-highest text-primary px-2 py-1 rounded text-label-sm font-label-sm z-10 flex items-center gap-1 border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Active
+                        </div>
+<div class="h-48 w-full overflow-hidden relative bg-surface-container-lowest">
+<img alt="Potato" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close up, high resolution photo of freshly harvested, premium quality potatoes resting in a rustic woven basket. Studio lighting highlighting the smooth texture and earthy brown skin against a dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDumpIq0_eND4gDM2pzWD6yMy8OCibG350Vr69XUq2SvxgDJasc8bL7ds_8LELMbgLKLUhiLGHDu66aoC3A0mxclE5OLbYE8JQG6_KJpRGdYIwob4ivPKiR_iQEg233rZEk43l9wle8OqvKKUUUwk_CcXDlOdFM_O0BB5L1TejXaXFTtaXEe3FEbRSiNUfcWxcrIiINo3UGNkxOjps_2w8BJ-aZ-X5PEB4bADQrZHYGMrDi6BlTsVF"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<span class="bg-[#102F31] border border-primary text-primary px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase">Premium Grade</span>
+</div>
+</div>
+<div class="p-5 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-body-lg font-body-lg text-on-surface font-bold">Kufri Jyoti Potatoes</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">Tuber / Root</p>
+</div>
+<div class="text-right">
+<p class="text-headline-md font-headline-md text-secondary font-bold">₹18<span class="text-label-sm font-label-sm text-on-surface-variant font-normal">/kg</span></p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2 border-t border-surface-container-high">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Available Quantity</p>
+<p class="text-body-md font-body-md text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="scale" style="font-size: 16px;">scale</span> 2,500 kg
+                                    </p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Market Trend</p>
+<p class="text-body-md font-body-md text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined" data-icon="trending_up" style="font-size: 16px;">trending_up</span> +2.4%
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2: Onion -->
+<div class="bg-surface-container-low rounded-xl border border-surface-container overflow-hidden hover:border-primary transition-colors group relative">
+<div class="absolute top-3 right-3 bg-surface-container-highest text-primary px-2 py-1 rounded text-label-sm font-label-sm z-10 flex items-center gap-1 border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Active
+                        </div>
+<div class="h-48 w-full overflow-hidden relative bg-surface-container-lowest">
+<img alt="Onion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vivid, sharp image of red onions piled together, showcasing their papery, vibrant purple-red skins. Dramatic side lighting emphasizing the round shapes and rich colors against a deep, dark moody background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJGqXz-dFwI1tav-Jn_I-NFngz709jaSNqJFpSeEqNfOsnRDGWGlZZUGvRErk6V8lVJJldy_D0qXcvZaeRzGIkn3KDU2mJ4LMFcD3xHfs8SMKc8bwO_gCrVQ-RgQPl3ip7TMAiXk4uE1qVFFWGnM_Q6NqGqe2di23o_0r4sv7cy5RNcVWPqusVkerkKuX87uo-IAlYgxUQtOi-t_UurdAc7CMsF8puAjwdzJ3MJ1TyTqJ7QbxJ19WO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<span class="bg-surface-container-high border border-outline text-on-surface-variant px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase">Standard Grade</span>
+</div>
+</div>
+<div class="p-5 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-body-lg font-body-lg text-on-surface font-bold">Nashik Red Onions</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">Bulb</p>
+</div>
+<div class="text-right">
+<p class="text-headline-md font-headline-md text-secondary font-bold">₹24<span class="text-label-sm font-label-sm text-on-surface-variant font-normal">/kg</span></p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2 border-t border-surface-container-high">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Available Quantity</p>
+<p class="text-body-md font-body-md text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="scale" style="font-size: 16px;">scale</span> 1,200 kg
+                                    </p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Market Trend</p>
+<p class="text-body-md font-body-md text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined" data-icon="trending_down" style="font-size: 16px;">trending_down</span> -1.2%
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3: Rice -->
+<div class="bg-surface-container-low rounded-xl border border-surface-container overflow-hidden hover:border-primary transition-colors group relative">
+<div class="absolute top-3 right-3 bg-surface-container-highest text-primary px-2 py-1 rounded text-label-sm font-label-sm z-10 flex items-center gap-1 border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Active
+                        </div>
+<div class="h-48 w-full overflow-hidden relative bg-surface-container-lowest">
+<img alt="Rice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed macro photograph of raw, long-grain Basmati rice. The grains are pristine white, scattered artistically on a matte dark slate surface. Cool, precise lighting emphasizing the texture and purity of the grains." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzW7W7s216zFaeOKxWmoh9I9oESHzW3BYjoBVyuAc4DVKydkUHn7juA6fYRmyKJx4qIYyq6ZcCAoIVqewxyywTbjTnQtLhc1P_G8-9Tyu2-qoY1-MCkpR2wZDeA4rBCObApd2mOZTspujEakBgkgldVUGrIIX4E62H9qerlrjqXPGdFXuyocYdQ5EXFivwz_3hGefFAh3T514Wg7uWnsyZRpZIwwi4oGs08kEUDwBv1vRy_oEN5K4Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<span class="bg-[#102F31] border border-primary text-primary px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase">Premium Grade</span>
+</div>
+</div>
+<div class="p-5 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-body-lg font-body-lg text-on-surface font-bold">Basmati Long Grain</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">Cereal / Grain</p>
+</div>
+<div class="text-right">
+<p class="text-headline-md font-headline-md text-secondary font-bold">₹85<span class="text-label-sm font-label-sm text-on-surface-variant font-normal">/kg</span></p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2 border-t border-surface-container-high">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Available Quantity</p>
+<p class="text-body-md font-body-md text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="scale" style="font-size: 16px;">scale</span> 5,000 kg
+                                    </p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Market Trend</p>
+<p class="text-body-md font-body-md text-on-surface-variant font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined" data-icon="remove" style="font-size: 16px;">remove</span> 0.0%
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

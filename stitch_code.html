@@ -1,0 +1,319 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>KisanDirect - Role Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#006e1f",
+                      "surface-bright": "#2c3a4c",
+                      "primary": "#84e684",
+                      "surface-container-lowest": "#010f1f",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffe086",
+                      "on-primary-fixed-variant": "#005315",
+                      "background": "#051425",
+                      "on-secondary-container": "#9cbbbd",
+                      "primary-container": "#69c96b",
+                      "surface-container": "#122032",
+                      "error": "#ffb4ab",
+                      "surface-container-highest": "#283648",
+                      "tertiary-fixed-dim": "#edc22b",
+                      "primary-fixed-dim": "#7bdc7b",
+                      "surface-container-low": "#0e1c2d",
+                      "surface-tint": "#7bdc7b",
+                      "surface-container-high": "#1d2b3d",
+                      "on-primary-fixed": "#002204",
+                      "on-background": "#d5e3fb",
+                      "surface-dim": "#051425",
+                      "on-tertiary-fixed": "#231b00",
+                      "secondary": "#adccce",
+                      "surface-variant": "#283648",
+                      "tertiary-container": "#d9b013",
+                      "on-primary-container": "#005215",
+                      "on-surface": "#d5e3fb",
+                      "secondary-fixed": "#c8e9eb",
+                      "surface": "#051425",
+                      "error-container": "#93000a",
+                      "secondary-fixed-dim": "#adccce",
+                      "on-tertiary-container": "#564400",
+                      "outline": "#899485",
+                      "outline-variant": "#3f4a3d",
+                      "on-error": "#690005",
+                      "on-secondary-fixed": "#002022",
+                      "inverse-surface": "#d5e3fb",
+                      "on-surface-variant": "#becab9",
+                      "on-tertiary": "#3c2f00",
+                      "inverse-on-surface": "#233143",
+                      "on-secondary": "#173537",
+                      "on-primary": "#00390c",
+                      "primary-fixed": "#96f995",
+                      "secondary-container": "#2e4c4e",
+                      "on-tertiary-fixed-variant": "#574500",
+                      "tertiary": "#f7cc35",
+                      "on-secondary-fixed-variant": "#2e4c4e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "gutter": "16px",
+                      "stack-lg": "32px",
+                      "container-padding-mobile": "16px",
+                      "container-padding-desktop": "32px",
+                      "stack-md": "16px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-xl": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #051425; /* background */
+            color: #d5e3fb; /* on-surface */
+        }
+        
+        .role-card-hover:hover img {
+            transform: scale(1.04);
+        }
+        
+        .role-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: #69c96b;
+        }
+        
+        .role-card-hover:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md antialiased bg-background">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 backdrop-blur-md dark:bg-surface/80 text-primary dark:text-primary-fixed-dim font-headline-md text-headline-md. Body: font-body-md text-body-md. Labels: font-label-sm text-label-sm. docked full-width top-0 sticky border-b border-outline-variant/30 flat no shadows flex justify-between items-center w-full px-container-padding-desktop max-w-full mx-auto py-4 z-50">
+<div class="flex items-center gap-gutter">
+<span class="font-headline-md text-headline-md font-bold text-primary-fixed-dim">🌾 KisanDirect</span>
+<span class="hidden md:inline-block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest border border-outline-variant/30 px-2 py-1 rounded">AI-POWERED AGRICULTURE</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+
+
+
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="hidden lg:flex items-center gap-1 font-label-sm text-label-sm text-primary-container bg-primary-container/10 px-2 py-1 rounded border border-primary-container/30">
+                DEMO PROTOTYPE
+            </span>
+
+<button class="md:hidden flex items-center justify-center p-2 text-on-surface hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<main class="flex-grow flex flex-col relative w-full">
+<!-- Background Image with Gradient -->
+<div class="absolute inset-0 z-0">
+<img alt="Agricultural background" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhNEXhcw4OiWJA1V46r0eUklMowAVuJn2MT7o_xZN9hIx8j7zIqDU-hrtgjrHeL71lQsM2VD5aiI7tByWIhMfge5QF-W44NYqSK2UVxgR66cnjW_Y9ZTkuLvA4FcuIGvbyQ1sx7Ngru5N6IGfWvG48n8D5WqYpM0vE1JyCVF75-9enKjVrg_9k9Nxr9lo3MTX76pXMGYdgekwOR5y8ntCAvGivsHAQcTL8HvYACf05ASWd0P0DeSD2">
+<div class="absolute inset-0 bg-gradient-to-b from-[#051425]/90 via-[#051425]/80 to-[#051425] z-10"></div>
+</div>
+<div class="relative z-20 flex flex-col items-center justify-center px-container-padding-mobile md:px-container-padding-desktop py-stack-lg md:py-24 max-w-7xl mx-auto w-full">
+<!-- Hero Content -->
+<div class="text-center max-w-3xl mb-stack-lg md:mb-20">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-stack-md">
+                    Where farmers, buyers and intelligence meet.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    KisanDirect connects farmers, consumers and enterprises through a smarter agricultural marketplace powered by data and AI.
+                </p>
+</div>
+<!-- Role Selection Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter md:gap-stack-lg w-full max-w-5xl">
+<!-- Farmer Card -->
+<a class="role-card-hover group relative overflow-hidden rounded-xl bg-surface-container border border-[#285E4C] h-64 md:h-80 transition-all duration-300 flex flex-col justify-end p-stack-md" href="farmer">
+<img alt="Farmer" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-all duration-500 z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7K79GKOnYwZx9jISrchhn5OiNfK0QfaXZFt8D-ddJVi1PcdLJKPGfOpZSEkwBg7ucaRHO3kc1weOHwONApi0y5YNSpOl1-hADN4I2P8Zu1z1rXxZ2i6O7GngocYg5vzhVqZMCuHWA8ssX8vIMO4JS-5-iNZVZw7mBNIoKBeeLCie7xp6sPVjb6NweX3F4AqaR8cRHgMNEoUlTWkRB3xVLj_p-3aL4HhtiZ_UkC8VAeBImdYITMJ7o">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10"></div>
+<div class="relative z-20">
+<div class="flex items-center justify-between mb-2">
+<span class="font-data-mono text-data-mono text-primary-container">01</span>
+<span class="material-symbols-outlined arrow-icon text-primary-container transition-transform duration-300">arrow_forward</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">FARMER</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Grow. List. Connect. Bring your produce directly to the KisanDirect marketplace.</p>
+</div>
+</a>
+<!-- Consumer Card -->
+<a class="role-card-hover group relative overflow-hidden rounded-xl bg-surface-container border border-[#285E4C] h-64 md:h-80 transition-all duration-300 flex flex-col justify-end p-stack-md" href="user">
+<img alt="Consumer" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-all duration-500 z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrnCEoXyBd9nIzvh5Wdpvt2D8oAGf6seIuMn8AqeULi9O7XCZHHjpjobc3Fz5O8ztHhRB8cF1cqchc4NXeUDI_v38YIxFdNO-N3BB4aVbJBJytWrcqOzseZIAn9Nm4lN7648DAyMF_MilCBqe5YbW5p3aiQIOATR3EvdSO8sRLO6y3dqJVOBYi3qc-L2wb4IjEnzhQeM8yMuAM4j2myZottVy2JoIOV2dyLw9zwpI5VkslN5pHKrj8">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10"></div>
+<div class="relative z-20">
+<div class="flex items-center justify-between mb-2">
+<span class="font-data-mono text-data-mono text-primary-container">02</span>
+<span class="material-symbols-outlined arrow-icon text-primary-container transition-transform duration-300">arrow_forward</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">CONSUMER</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Discover. Choose. Buy. Find fresh agricultural products directly through the KisanDirect ecosystem.</p>
+</div>
+</a>
+<!-- Enterprise Card -->
+<a class="role-card-hover group relative overflow-hidden rounded-xl bg-surface-container border border-[#285E4C] h-64 md:h-80 transition-all duration-300 flex flex-col justify-end p-stack-md" href="enterprise">
+<img alt="Enterprise" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-all duration-500 z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrUC_BdyVlr8A-4ubpKEQeL05PLJvLD_-C6RZf_LnxrqY0B_l8idQBToQbvaky-ednx4uH7In6QIxiHFd2pIl6xAemIVCNkxYq_tqz-fPeWqgXmrSbKVUaZi2h0upVSaVvvvXEbBOosSTyDuqAc4Qhn2H6w9-jSJ03S4yyw6BZC1po-iuYWSzXQlcFQjdAuO7a11yB3yrOCDZu4r15594K4UJQhIEo7eg7IaeRgFY0PV2c4NUQcxmW">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10"></div>
+<div class="relative z-20">
+<div class="flex items-center justify-between mb-2">
+<span class="font-data-mono text-data-mono text-primary-container">03</span>
+<span class="material-symbols-outlined arrow-icon text-primary-container transition-transform duration-300">arrow_forward</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">ENTERPRISE</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Source. Plan. Scale. Plan agricultural procurement with better supply and demand visibility.</p>
+</div>
+</a>
+<!-- Admin Card -->
+<a class="role-card-hover group relative overflow-hidden rounded-xl bg-surface-container border border-[#285E4C] h-64 md:h-80 transition-all duration-300 flex flex-col justify-end p-stack-md" href="admin">
+<img alt="Admin" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-all duration-500 z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzq2nGwZf3LRPYs6TYGSQGFMstitDXxw_1HEbUsbt-ukD3QNo0n5kWArvjitnlrpCJEF1Fa_BOew-ws55Y7F5qg0EG3Ljd3XQbfYRqPh5niuuNaCv5skM6aQqZ_f-fnS3xiT61CcFEkXDlzCuM16swMSL4mUSSglOwmMsQuER_g-akd1I3ZIIDIIxN_rQv6bBM8Xj6MlWMh9QBYG5QL5k4JpmXX0RfFKFRYt9DzAaGVcDatxlPfYkA">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10"></div>
+<div class="relative z-20">
+<div class="flex items-center justify-between mb-2">
+<span class="font-data-mono text-data-mono text-primary-container">04</span>
+<span class="material-symbols-outlined arrow-icon text-primary-container transition-transform duration-300">arrow_forward</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">ADMIN</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Monitor. Manage. Understand. Manage the KisanDirect ecosystem and monitor platform activity.</p>
+</div>
+</a>
+</div>
+<!-- AI Indicator -->
+<div class="mt-stack-lg flex items-center gap-2 font-label-sm text-label-sm text-primary-container bg-surface-container px-4 py-2 rounded-full border border-primary-container/30">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                AI DEMAND ENGINE ACTIVE
+            </div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest text-primary dark:text-primary-fixed-dim font-body-md text-body-md. Labels: font-label-sm text-label-sm. full-width border-t border-outline-variant/20 flat no shadows flex flex-col md:flex-row justify-between items-center w-full px-container-padding-desktop py-stack-lg gap-gutter relative z-50">
+<div class="font-headline-md text-headline-md font-black text-primary">KisanDirect</div>
+<div class="flex flex-wrap justify-center gap-stack-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">Contact Support</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">Global Network</a>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm text-center md:text-right">
+            © 2026 KisanDirect AI. All rights reserved. Precision Agriculture Powered by Intelligence.
+        </div>
+</footer>
+
+
+
+
+</body></html>

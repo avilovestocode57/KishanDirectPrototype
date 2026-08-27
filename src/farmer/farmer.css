@@ -1,0 +1,98 @@
+/* KisanDirect Farmer Module Styles - Preserving Stitch UI Aesthetics */
+
+:root {
+  --bg-background: #061520;
+  --surface: #061520;
+  --surface-container: #13212c;
+  --surface-container-low: #0e1d28;
+  --surface-container-high: #1d2b37;
+  --surface-container-highest: #283642;
+  --primary: #84e684;
+  --primary-container: #69c96b;
+  --on-primary: #00390c;
+  --on-primary-container: #005215;
+  --secondary: #edc22b;
+  --secondary-container: #cfa700;
+  --tertiary: #b6d6d8;
+  --on-surface: #d5e4f4;
+  --on-surface-variant: #becab9;
+  --outline: #899485;
+  --outline-variant: #3f4a3d;
+  --error: #ffb4ab;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.25s ease-out; }
+
+
+.farmer-root {
+  background-color: var(--bg-background);
+  color: var(--on-surface);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 15px rgba(105, 201, 107, 0.4);
+}
+
+.glass-card {
+  background: rgba(11, 26, 43, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(137, 148, 133, 0.2);
+}
+
+.glassmorphism-card {
+  background: linear-gradient(135deg, rgba(16, 47, 49, 0.7) 0%, rgba(11, 26, 43, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(105, 201, 107, 0.2);
+}
+
+.glass-panel {
+  background: rgba(11, 26, 43, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(137, 148, 133, 0.2);
+}
+
+/* Custom Scrollbars */
+.farmer-root ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.farmer-root ::-webkit-scrollbar-track {
+  background: #061520;
+}
+
+.farmer-root ::-webkit-scrollbar-thumb {
+  background: #283642;
+  border-radius: 4px;
+}
+
+.farmer-root ::-webkit-scrollbar-thumb:hover {
+  background: #3f4a3d;
+}
+
+/* Streamlit Embed Responsive Container */
+.streamlit-iframe-wrapper {
+  width: 100%;
+  height: calc(100vh - 120px);
+  min-height: 750px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(105, 201, 107, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  background: #0e1d28;
+}
+
+.streamlit-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

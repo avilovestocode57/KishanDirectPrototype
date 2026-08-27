@@ -1,0 +1,280 @@
+/* enterprise.css — KisanDirect Enterprise Procurement Styles */
+
+:root {
+  --e-bg-dark: #061520;
+  --e-card-bg: rgba(14, 29, 40, 0.75);
+  --e-card-border: rgba(63, 74, 61, 0.5);
+  --e-primary-green: #84e684;
+  --e-accent-gold: #edc22b;
+  --e-accent-blue: #38bdf8;
+  --e-text-main: #d5e4f4;
+  --e-text-muted: #becab9;
+  --e-danger-red: #f87171;
+}
+
+.e-portal {
+  min-height: 100vh;
+  background-color: var(--e-bg-dark);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(16, 47, 49, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(14, 40, 30, 0.4) 0%, transparent 40%);
+  color: var(--e-text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  display: flex;
+}
+
+/* Glass Card */
+.e-glass-card {
+  background: var(--e-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--e-card-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.e-glass-card:hover {
+  border-color: rgba(132, 230, 132, 0.35);
+}
+
+/* Badges */
+.e-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.e-badge-green {
+  background: rgba(132, 230, 132, 0.15);
+  color: #84e684;
+  border: 1px solid rgba(132, 230, 132, 0.3);
+}
+
+.e-badge-gold {
+  background: rgba(237, 194, 43, 0.15);
+  color: #edc22b;
+  border: 1px solid rgba(237, 194, 43, 0.3);
+}
+
+.e-badge-blue {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.e-badge-red {
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.e-badge-gray {
+  background: rgba(190, 202, 185, 0.12);
+  color: #becab9;
+  border: 1px solid rgba(190, 202, 185, 0.25);
+}
+
+/* Buttons */
+.e-btn-primary {
+  background: #84e684;
+  color: #061520;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.e-btn-primary:hover {
+  background: #9cf09c;
+  box-shadow: 0 0 16px rgba(132, 230, 132, 0.4);
+  transform: translateY(-1px);
+}
+
+.e-btn-secondary {
+  background: #102F31;
+  color: #84e684;
+  border: 1px solid rgba(132, 230, 132, 0.3);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.e-btn-secondary:hover {
+  background: rgba(132, 230, 132, 0.15);
+  border-color: #84e684;
+}
+
+.e-btn-ghost {
+  background: transparent;
+  color: #becab9;
+  border: 1px solid #3f4a3d;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.e-btn-ghost:hover {
+  color: #d5e4f4;
+  border-color: #84e684;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.e-btn-danger {
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.e-btn-danger:hover {
+  background: rgba(248, 113, 113, 0.25);
+  border-color: #f87171;
+}
+
+/* Inputs & Form Controls */
+.e-input, .e-select, .e-textarea {
+  background: rgba(14, 29, 40, 0.85);
+  border: 1px solid #3f4a3d;
+  color: #d5e4f4;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.e-input:focus, .e-select:focus, .e-textarea:focus {
+  border-color: #84e684;
+  box-shadow: 0 0 8px rgba(132, 230, 132, 0.25);
+}
+
+.e-select option {
+  background: #0e1d28;
+  color: #d5e4f4;
+}
+
+/* Table */
+.e-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.e-table th {
+  background: rgba(16, 47, 49, 0.7);
+  color: #becab9;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 18px;
+  border-bottom: 1px solid #3f4a3d;
+}
+
+.e-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(63, 74, 61, 0.4);
+  font-size: 13px;
+  color: #d5e4f4;
+}
+
+.e-table tr:hover td {
+  background: rgba(132, 230, 132, 0.03);
+}
+
+/* Timeline */
+.e-timeline-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.e-timeline-step:last-child {
+  padding-bottom: 0;
+}
+
+.e-timeline-step::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 32px;
+  bottom: 0;
+  width: 2px;
+  background: #3f4a3d;
+}
+
+.e-timeline-step:last-child::before {
+  display: none;
+}
+
+.e-timeline-step.completed::before {
+  background: #84e684;
+}
+
+.e-timeline-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0e1d28;
+  border: 2px solid #3f4a3d;
+  color: #becab9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  z-index: 2;
+}
+
+.e-timeline-step.completed .e-timeline-icon {
+  background: #84e684;
+  border-color: #84e684;
+  color: #061520;
+}
+
+.e-timeline-step.active .e-timeline-icon {
+  background: #102F31;
+  border-color: #84e684;
+  color: #84e684;
+  box-shadow: 0 0 12px rgba(132, 230, 132, 0.4);
+}
