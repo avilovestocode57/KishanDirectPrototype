@@ -67,7 +67,7 @@ export default function BulkRequirements({ onNavigate, setSelectedReqId }) {
           <button
             onClick={resetDemoData}
             className="e-btn-ghost"
-            title="Reset 12,000 quintal Swarna Paddy Rice test requirement and seed bids">
+            title="Reset enterprise small-batch test requirements and seed bids">
             <span className="material-symbols-outlined" style={{ fontSize: 18 }}>restart_alt</span>
             Reset Demo Data
           </button>
@@ -165,7 +165,11 @@ export default function BulkRequirements({ onNavigate, setSelectedReqId }) {
             const pct = Math.min(100, Math.round((allocQty / (reqQty || 1)) * 100));
 
             return (
-              <div key={req.id} className="e-glass-card" style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 16, borderLeft: '4px solid #84e684' }}>
+              <div
+                key={req.id}
+                className="e-glass-card"
+                onClick={() => handleViewDetails(req.id)}
+                style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 16, borderLeft: '4px solid #84e684', cursor: 'pointer' }}>
                 {/* Header Row */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                   <div>
@@ -223,7 +227,7 @@ export default function BulkRequirements({ onNavigate, setSelectedReqId }) {
                 {/* Actions Row */}
                 <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
                   <button
-                    onClick={() => handleViewDetails(req.id)}
+                    onClick={(e) => { e.stopPropagation(); handleViewDetails(req.id); }}
                     className="e-btn-primary"
                     style={{ flex: 1, padding: '8px 14px', fontSize: 13 }}>
                     <span className="material-symbols-outlined" style={{ fontSize: 16 }}>gavel</span>
@@ -232,7 +236,7 @@ export default function BulkRequirements({ onNavigate, setSelectedReqId }) {
 
                   {(req.fulfillmentStatus === 'OPEN' || req.fulfillmentStatus === 'PARTIALLY_FULFILLED') && (
                     <button
-                      onClick={() => setConfirmCloseReq(req)}
+                      onClick={(e) => { e.stopPropagation(); setConfirmCloseReq(req); }}
                       className="e-btn-ghost"
                       style={{ padding: '8px 12px', fontSize: 12, color: '#f87171' }}>
                       Close

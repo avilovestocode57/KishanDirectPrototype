@@ -25,10 +25,10 @@ export default function CreateRequirement({ onNavigate, setSelectedReqId }) {
 
   const [form, setForm] = useState({
     product: AGRI_PRODUCTS[0],
-    requiredQuantity: 500,
-    unit: 'quintal',
+    requiredQuantity: 120,
+    unit: 'kg',
     quality: 'Grade A',
-    targetPrice: 2500,
+    targetPrice: 72,
     selectedAddressId: defaultAddr ? defaultAddr.id : '',
     deliveryDate: new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0],
     notes: '',
@@ -184,7 +184,7 @@ export default function CreateRequirement({ onNavigate, setSelectedReqId }) {
                 className="e-input"
                 value={form.requiredQuantity}
                 onChange={e => setForm({ ...form, requiredQuantity: e.target.value })}
-                placeholder="e.g. 500"
+                placeholder="e.g. 120"
               />
             </div>
             <div>

@@ -9,7 +9,6 @@ export default function EnterpriseSidebar({ activeTab, setActiveTab, onLogout })
     { id: 'dashboard', label: 'Dashboard', icon: 'space_dashboard' },
     { id: 'requirements', label: 'Bulk Requirements', icon: 'inventory_2' },
     { id: 'create_requirement', label: 'Create Requirement', icon: 'add_box' },
-    { id: 'bids', label: 'Farmer Bids', icon: 'gavel' },
     { id: 'orders', label: 'Orders & Tracking', icon: 'local_shipping' },
     { id: 'profile', label: 'Enterprise Profile', icon: 'business' },
   ];
@@ -59,7 +58,7 @@ export default function EnterpriseSidebar({ activeTab, setActiveTab, onLogout })
         </div>
 
         {navItems.map(item => {
-          const isActive = activeTab === item.id || (activeTab === 'requirement_details' && item.id === 'bids') || (activeTab === 'order_tracking' && item.id === 'orders');
+          const isActive = activeTab === item.id || ((activeTab === 'requirement_details' || activeTab === 'bids') && item.id === 'requirements') || (activeTab === 'order_tracking' && item.id === 'orders');
 
           return (
             <button
