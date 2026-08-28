@@ -1,10 +1,10 @@
 // FarmerShop.jsx — Farmer profile + their products
 import React, { useState } from 'react';
 import { FARMERS, PRODUCTS, useConsumer } from './ConsumerContext';
+import ProductCard from './ProductCard';
 
 export default function FarmerShop({ farmerId, onNavigate }) {
   const farmer = FARMERS[farmerId];
-  const { addToCart } = useConsumer();
   const [toast, setToast] = useState('');
 
   if (!farmer) return (
@@ -16,13 +16,6 @@ export default function FarmerShop({ farmerId, onNavigate }) {
   );
 
   const farmerProducts = PRODUCTS.filter(p => p.farmerId === farmerId);
-
-  function handleAdd(productId) {
-    addToCart(productId, 1);
-    const p = PRODUCTS.find(p => p.id === productId);
-    setToast(`${p?.name} added to cart!`);
-    setTimeout(() => setToast(''), 2000);
-  }
 
   return (
     <div className="consumer-root" style={{ minHeight:'100vh' }}>
@@ -87,38 +80,13 @@ export default function FarmerShop({ farmerId, onNavigate }) {
         ) : (
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(260px,1fr))', gap:20 }}>
             {farmerProducts.map(product => (
-              <div key={product.id} className="c-product-card" onClick={() => onNavigate('product', { productId: product.id })}>
-                <div className="c-product-img-wrap">
-                  <img src={product.image} alt={product.name} />
-                  <div style={{ position:'absolute', top:10, right:10, background:'rgba(6,21,32,0.85)', borderRadius:6, padding:'3px 8px', fontSize:13, color:'#edc22b', fontWeight:700 }}>
-                    ₹{product.price}/kg
-                  </div>
-                </div>
-                <div style={{ padding:'14px 16px', display:'flex', flexDirection:'column', gap:10, flex:1 }}>
-                  <div>
-                    <div style={{ fontWeight:700, fontSize:15, color:'#d5e4f4', marginBottom:2 }}>{product.name}</div>
-                    <div style={{ fontSize:11, color:'#becab9' }}>{product.stock} kg available</div>
-                  </div>
-                  <p style={{ fontSize:12, color:'#becab9', lineHeight:1.5, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden', margin:0 }}>
-                    {product.description}
-                  </p>
-                  <div style={{ marginTop:'auto', display:'flex', gap:8 }}>
-                    <button
-                      className="c-btn-primary"
-                      style={{ flex:1, justifyContent:'center', padding:'9px 12px', fontSize:13 }}
-                      onClick={e => { e.stopPropagation(); handleAdd(product.id); }}>
-                      <span className="material-symbols-outlined" style={{ fontSize:15 }}>add_shopping_cart</span>
-                      Add to Cart
-                    </button>
-                    <button
-                      className="c-btn-ghost"
-                      style={{ padding:'9px 12px', flexShrink:0 }}
-                      onClick={e => { e.stopPropagation(); onNavigate('product', { productId: product.id }); }}>
-                      <span className="material-symbols-outlined" style={{ fontSize:15 }}>visibility</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <ProductCard
+                key={product.id}
+                product={product}
+                showFarmerInfo={false}
+                onView={id => onNavigate('product', { productId: id })}
+                onItemAdded={p => { setToast(`${p.name} added to cart!`); setTimeout(() => setToast(''), 2000); }}
+              />
             ))}
           </div>
         )}

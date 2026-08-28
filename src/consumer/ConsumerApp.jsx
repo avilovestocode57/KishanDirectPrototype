@@ -8,6 +8,7 @@ import ProductDetails   from './ProductDetails';
 import FarmerShop       from './FarmerShop';
 import ShoppingCart     from './ShoppingCart';
 import Checkout         from './Checkout';
+import BuyNowCheckout   from './BuyNowCheckout';
 import OrderConfirmation from './OrderConfirmation';
 import OrderTracking    from './OrderTracking';
 import ConsumerProfile  from './ConsumerProfile';
@@ -17,6 +18,11 @@ import RolesButton      from '../components/RolesButton';
 function ProductDetailsWrapper({ onNavigate }) {
   const { productId } = useParams();
   return <ProductDetails onNavigate={onNavigate} productId={productId} />;
+}
+
+function BuyNowWrapper({ onNavigate }) {
+  const { productId } = useParams();
+  return <BuyNowCheckout onNavigate={onNavigate} productId={productId} />;
 }
 
 function FarmerShopWrapper({ onNavigate }) {
@@ -121,6 +127,9 @@ function ConsumerShell({ onBack }) {
       case 'checkout':
         navigate('/consumer/checkout');
         break;
+      case 'buy-now':
+        navigate(`/consumer/buy-now/${payload.productId || payload}`, { state: { quantity: payload.quantity || 1 } });
+        break;
       case 'order-confirmation':
         navigate(`/consumer/order-confirmation/${payload.orderId || payload}`);
         break;
@@ -147,6 +156,7 @@ function ConsumerShell({ onBack }) {
           <Route path="farmer/:farmerId" element={<FarmerShopWrapper onNavigate={handleNavigate} />} />
           <Route path="cart" element={<ShoppingCart onNavigate={handleNavigate} />} />
           <Route path="checkout" element={<Checkout onNavigate={handleNavigate} />} />
+          <Route path="buy-now/:productId" element={<BuyNowWrapper onNavigate={handleNavigate} />} />
           <Route path="order-confirmation/:orderId" element={<OrderConfirmationWrapper onNavigate={handleNavigate} />} />
           <Route path="order-tracking/:orderId" element={<OrderTrackingWrapper onNavigate={handleNavigate} />} />
           <Route path="profile" element={<ConsumerProfile onNavigate={handleNavigate} />} />

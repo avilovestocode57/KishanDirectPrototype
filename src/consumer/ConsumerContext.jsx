@@ -83,7 +83,9 @@ function reducer(state, action) {
 
     case 'PLACE_ORDER': {
       const order = action.payload;
-      return { ...state, orders: [order, ...state.orders], cart: [], customer: order.customer };
+      const shouldClearCart = order.clearCart !== false;
+      const { clearCart, ...cleanOrder } = order;
+      return { ...state, orders: [cleanOrder, ...state.orders], cart: shouldClearCart ? [] : state.cart, customer: cleanOrder.customer || state.customer };
     }
 
     case 'ADVANCE_ORDER': {

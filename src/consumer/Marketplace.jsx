@@ -1,85 +1,17 @@
 // Marketplace.jsx — Consumer Product Discovery
 import React, { useState, useMemo } from 'react';
-import { PRODUCTS, FARMERS } from './ConsumerContext';
-import { useConsumer } from './ConsumerContext';
+import { PRODUCTS, FARMERS, useConsumer } from './ConsumerContext';
+import ProductCard from './ProductCard';
 
 const CATEGORIES = ['All', 'Vegetables', 'Fruits', 'Grains'];
 
-function ProductCard({ product, onView, onAddToCart }) {
-  const farmer = FARMERS[product.farmerId];
-  const [added, setAdded] = useState(false);
-
-  function handleAdd(e) {
-    e.stopPropagation();
-    onAddToCart(product.id, 1);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1500);
-  }
-
-  return (
-    <div className="c-product-card c-fade-in" onClick={() => onView(product.id)}>
-      <div className="c-product-img-wrap">
-        <img src={product.image} alt={product.name} />
-        <div style={{ position:'absolute', top:10, left:10 }}>
-          <span className="c-badge c-badge-green" style={{ textTransform:'none', fontWeight:600 }}>{product.category}</span>
-        </div>
-        <div style={{ position:'absolute', top:10, right:10, background:'rgba(6,21,32,0.8)', borderRadius:6, padding:'3px 8px', fontSize:13, color:'#edc22b', fontWeight:700 }}>
-          ₹{product.price}/{product.unit}
-        </div>
-      </div>
-      <div style={{ padding:'14px 16px', display:'flex', flexDirection:'column', gap:8, flex:1 }}>
-        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start' }}>
-          <div>
-            <div style={{ fontWeight:700, fontSize:15, color:'#d5e4f4', marginBottom:2 }}>{product.name}</div>
-            <div style={{ fontSize:12, color:'#becab9', display:'flex', alignItems:'center', gap:4 }}>
-              <span className="material-symbols-outlined" style={{ fontSize:13 }}>person</span>
-              {farmer?.name}
-            </div>
-          </div>
-          <div style={{ textAlign:'right', flexShrink:0 }}>
-            <div style={{ fontSize:12, color:'#becab9', display:'flex', alignItems:'center', gap:3, justifyContent:'flex-end' }}>
-              <span className="material-symbols-outlined" style={{ fontSize:12 }}>location_on</span>
-              {product.district}
-            </div>
-            <div style={{ fontSize:11, color:'#3f4a3d', marginTop:1 }}>{product.stock} kg avail.</div>
-          </div>
-        </div>
-        <p style={{ fontSize:12, color:'#becab9', lineHeight:1.5, display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>
-          {product.description}
-        </p>
-        <div style={{ marginTop:'auto', display:'flex', gap:8 }}>
-          <button
-            className={added ? 'c-btn-ghost' : 'c-btn-primary'}
-            style={{ flex:1, justifyContent:'center', padding:'9px 12px', fontSize:13 }}
-            onClick={handleAdd}>
-            <span className="material-symbols-outlined" style={{ fontSize:16 }}>{added ? 'check' : 'add_shopping_cart'}</span>
-            {added ? 'Added!' : 'Add to Cart'}
-          </button>
-          <button
-            className="c-btn-ghost"
-            style={{ padding:'9px 12px', fontSize:13, flexShrink:0 }}
-            onClick={(e) => { e.stopPropagation(); onView(product.id); }}>
-            <span className="material-symbols-outlined" style={{ fontSize:16 }}>visibility</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Marketplace({ onNavigate }) {
-  const { addToCart, cartCount } = useConsumer();
+  const { cartCount } = useConsumer();
   const [search, setSearch]   = useState('');
   const [category, setCategory] = useState('All');
   const [toast, setToast]     = useState('');
 
   function showToast(msg) { setToast(msg); setTimeout(() => setToast(''), 2000); }
-
-  function handleAddToCart(productId, qty) {
-    addToCart(productId, qty);
-    const p = PRODUCTS.find(p => p.id === productId);
-    showToast(`${p?.name} added to cart!`);
-  }
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
@@ -175,7 +107,7 @@ export default function Marketplace({ onNavigate }) {
                 key={p.id}
                 product={p}
                 onView={id => onNavigate('product', { productId: id })}
-                onAddToCart={handleAddToCart}
+                onItemAdded={p => showToast(`${p.name} added to cart!`)}
               />
             ))}
           </div>

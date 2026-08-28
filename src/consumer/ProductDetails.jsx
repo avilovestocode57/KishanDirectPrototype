@@ -130,7 +130,7 @@ export default function ProductDetails({ productId, onNavigate }) {
               <button
                 className="c-btn-outline"
                 style={{ width:'100%', justifyContent:'center', padding:'12px', fontSize:14, borderRadius:10 }}
-                onClick={() => { addToCart(product.id, qty); onNavigate('cart'); }}>
+                onClick={() => onNavigate('buy-now', { productId: product.id, quantity: qty })}>
                 <span className="material-symbols-outlined">shopping_cart_checkout</span>
                 Buy Now
               </button>
