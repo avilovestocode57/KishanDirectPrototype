@@ -6,7 +6,7 @@ export default function ProtectedRoute({ allowedRole, activeRole, children }) {
 
   if (!currentRole) {
     // Unauthenticated user attempting to access a protected area
-    return <Navigate to="/" replace />;
+    return <Navigate to="/home" replace />;
   }
 
   if (allowedRole && currentRole !== allowedRole) {
@@ -21,7 +21,7 @@ export default function ProtectedRoute({ allowedRole, activeRole, children }) {
       case 'admin':
         return <Navigate to="/admin/overview" replace />;
       default:
-        return <Navigate to="/" replace />;
+        return <Navigate to="/home" replace />;
     }
   }
 

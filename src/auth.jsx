@@ -51,7 +51,7 @@ export default function Auth({ onSelectRole }) {
             <span>🌾</span>
             <span>KisanDirect</span>
           </div>
-          <span className="stitch-brand-tag">AI-POWERED AGRICULTURE</span>
+          <span className="stitch-brand-tag">AI-POWERED AGRO MARKETPLACE</span>
         </div>
       </nav>
 

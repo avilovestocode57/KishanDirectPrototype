@@ -11,6 +11,7 @@ import Checkout         from './Checkout';
 import OrderConfirmation from './OrderConfirmation';
 import OrderTracking    from './OrderTracking';
 import ConsumerProfile  from './ConsumerProfile';
+import RolesButton      from '../components/RolesButton';
 
 // ─── Route Wrappers for Params ────────────────────────────────────────────────
 function ProductDetailsWrapper({ onNavigate }) {
@@ -88,16 +89,8 @@ function ConsumerHeader({ onNavigate, onBack }) {
         <span className="desktop-only">Profile</span>
       </button>
 
-      {/* Exit */}
-      {onBack && (
-        <button onClick={onBack}
-          style={{ background:'transparent', border:'1px solid rgba(63,74,61,0.5)', cursor:'pointer', color:'#becab9', display:'flex', alignItems:'center', gap:5, fontSize:12, padding:'5px 12px', borderRadius:6, transition:'all 0.2s' }}
-          onMouseEnter={e => { e.currentTarget.style.borderColor='#84e684'; e.currentTarget.style.color='#84e684'; }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor='rgba(63,74,61,0.5)'; e.currentTarget.style.color='#becab9'; }}>
-          <span className="material-symbols-outlined" style={{ fontSize:16 }}>swap_horiz</span>
-          <span className="desktop-only">Roles</span>
-        </button>
-      )}
+      {/* Roles Button */}
+      {onBack && <RolesButton onClick={onBack} />}
     </header>
   );
 }

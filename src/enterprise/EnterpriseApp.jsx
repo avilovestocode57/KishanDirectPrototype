@@ -10,6 +10,7 @@ import RequirementDetailsBids from './RequirementDetailsBids';
 import EnterpriseOrders from './EnterpriseOrders';
 import OrderTracking from './OrderTracking';
 import EnterpriseProfile from './EnterpriseProfile';
+import RolesButton from '../components/RolesButton';
 import './enterprise.css';
 
 function RequirementDetailsBidsWrapper({ onNavigate, setSelectedOrderId }) {
@@ -105,13 +106,7 @@ function EnterpriseMainContent({ onBack }) {
             <div className="e-badge e-badge-green">
               <span className="material-symbols-outlined" style={{ fontSize: 12 }}>verified</span> WB Region
             </div>
-            <button
-              onClick={onBack}
-              className="e-btn-ghost"
-              style={{ fontSize: 12, padding: '6px 12px' }}>
-              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_back</span>
-              Role Selector
-            </button>
+            {onBack && <RolesButton onClick={onBack} />}
           </div>
         </header>
 

@@ -11,6 +11,7 @@ import EnterpriseRequirements from './EnterpriseRequirements';
 import FarmerProfile from './FarmerProfile';
 import AiInsights from './AiInsights';
 import farmerAvatar from '../assets/farmer-asset-1.png';
+import RolesButton from '../components/RolesButton';
 
 function AddProductRouteWrapper({ onNavigate }) {
   const { editProductId } = useParams();
@@ -148,10 +149,6 @@ function FarmerShell({ onBack }) {
           </div>
 
           <div className="flex items-center gap-4 ml-auto">
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-highest border border-primary/30">
-              <span className="text-primary text-[10px] animate-pulse">●</span>
-              <span className="text-label-sm font-label-sm text-on-surface">ML Model Active</span>
-            </div>
             <button className="text-on-surface-variant hover:text-primary relative p-2 rounded-full hover:bg-surface-container-highest transition-colors">
               <span className="material-symbols-outlined">notifications</span>
               <span className="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
@@ -160,11 +157,9 @@ function FarmerShell({ onBack }) {
               <span className="material-symbols-outlined">settings</span>
             </button>
             {onBack && (
-              <button onClick={onBack}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-outline-variant/50 text-on-surface-variant hover:text-primary text-label-sm font-label-sm transition-colors ml-2">
-                <span className="material-symbols-outlined text-[16px]">swap_horiz</span>
-                Roles
-              </button>
+              <div className="ml-2">
+                <RolesButton onClick={onBack} />
+              </div>
             )}
           </div>
         </header>

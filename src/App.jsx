@@ -30,40 +30,40 @@ function AppRoutes() {
         navigate('/admin/overview');
         break;
       default:
-        navigate('/');
+        navigate('/home');
     }
   };
 
   const handleLogout = () => {
     setRole(null);
     localStorage.removeItem('kd_active_role');
-    navigate('/');
+    navigate('/home');
   };
 
-  // Synchronize state if localStorage is cleared or changed externally
+  // Synchronize state and clear role when visiting /home
   useEffect(() => {
-    const saved = localStorage.getItem('kd_active_role');
-    if (saved !== role) {
-      setRole(saved);
+    if (location.pathname === '/home') {
+      if (role || localStorage.getItem('kd_active_role')) {
+        setRole(null);
+        localStorage.removeItem('kd_active_role');
+      }
+    } else {
+      const saved = localStorage.getItem('kd_active_role');
+      if (saved !== role) {
+        setRole(saved);
+      }
     }
   }, [location.pathname]);
 
   return (
     <Routes>
-      {/* Public Landing & Role Selection */}
+      {/* Root redirects to /home */}
+      <Route path="/" element={<Navigate to="/home" replace />} />
+
+      {/* Public Landing & Role Selection at /home */}
       <Route
-        path="/"
-        element={
-          role ? (
-            role === 'farmer' ? <Navigate to="/farmer/dashboard" replace /> :
-            role === 'user' ? <Navigate to="/consumer/marketplace" replace /> :
-            role === 'enterprise' ? <Navigate to="/enterprise/dashboard" replace /> :
-            role === 'admin' ? <Navigate to="/admin/overview" replace /> :
-            <Auth onSelectRole={handleSelectRole} />
-          ) : (
-            <Auth onSelectRole={handleSelectRole} />
-          )
-        }
+        path="/home"
+        element={<Auth onSelectRole={handleSelectRole} />}
       />
 
       {/* Role-Protected Route Branches */}

@@ -8,6 +8,7 @@ import AdminUsers from './AdminUsers';
 import AdminApprovals from './AdminApprovals';
 import AdminOrders from './AdminOrders';
 import AdminAIInsights from './AdminAIInsights';
+import RolesButton from '../components/RolesButton';
 import './admin.css';
 
 function AdminContent({ onBack }) {
@@ -59,16 +60,52 @@ function AdminContent({ onBack }) {
       />
 
       {/* Main Content Viewport */}
-      <main style={{ flex: 1, overflowY: 'auto', background: '#061520', minWidth: 0 }}>
-        <Routes>
-          <Route path="/" element={<Navigate to="overview" replace />} />
-          <Route path="overview" element={<AdminOverview onNavigate={handleNavigate} />} />
-          <Route path="users" element={<AdminUsers />} />
-          <Route path="approvals" element={<AdminApprovals />} />
-          <Route path="orders" element={<AdminOrders />} />
-          <Route path="ai-insights" element={<AdminAIInsights />} />
-          <Route path="*" element={<Navigate to="overview" replace />} />
-        </Routes>
+      <main style={{ flex: 1, overflowY: 'auto', background: '#061520', minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+        {/* Top Header Bar */}
+        <header style={{
+          height: 64,
+          padding: '0 32px',
+          background: 'rgba(14, 29, 40, 0.85)',
+          backdropFilter: 'blur(10px)',
+          borderBottom: '1px solid rgba(63,74,61,0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          position: 'sticky',
+          top: 0,
+          zIndex: 30,
+          flexShrink: 0,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span className="material-symbols-outlined" style={{ color: '#84e684', fontSize: 22 }}>
+              admin_panel_settings
+            </span>
+            <div>
+              <span style={{ fontSize: 14, fontWeight: 800, color: '#d5e4f4', letterSpacing: '-0.2px' }}>
+                KisanDirect Admin Management
+              </span>
+              <span style={{ fontSize: 11, color: '#becab9', marginLeft: 8 }}>
+                • West Bengal Region
+              </span>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            {onBack && <RolesButton onClick={onBack} />}
+          </div>
+        </header>
+
+        <div style={{ flex: 1 }}>
+          <Routes>
+            <Route path="/" element={<Navigate to="overview" replace />} />
+            <Route path="overview" element={<AdminOverview onNavigate={handleNavigate} />} />
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="approvals" element={<AdminApprovals />} />
+            <Route path="orders" element={<AdminOrders />} />
+            <Route path="ai-insights" element={<AdminAIInsights />} />
+            <Route path="*" element={<Navigate to="overview" replace />} />
+          </Routes>
+        </div>
       </main>
 
       {/* Notifications Modal */}
