@@ -1,17 +1,32 @@
 // EnterpriseSidebar.jsx — Clean Sidebar Navigation for KisanDirect Enterprise Portal
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { useEnterprise } from './EnterpriseContext';
 
 export default function EnterpriseSidebar({ activeTab, setActiveTab, onLogout }) {
   const { profile } = useEnterprise();
+  const location = useLocation();
 
   const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: 'space_dashboard' },
-    { id: 'requirements', label: 'Bulk Requirements', icon: 'inventory_2' },
-    { id: 'create_requirement', label: 'Create Requirement', icon: 'add_box' },
-    { id: 'orders', label: 'Orders & Tracking', icon: 'local_shipping' },
-    { id: 'profile', label: 'Enterprise Profile', icon: 'business' },
+    { id: 'dashboard', label: 'Dashboard', icon: 'space_dashboard', path: '/enterprise/dashboard' },
+    { id: 'requirements', label: 'Bulk Requirements', icon: 'inventory_2', path: '/enterprise/requirements' },
+    { id: 'create_requirement', label: 'Create Requirement', icon: 'add_box', path: '/enterprise/requirements/create' },
+    { id: 'orders', label: 'Orders & Tracking', icon: 'local_shipping', path: '/enterprise/orders' },
+    { id: 'profile', label: 'Enterprise Profile', icon: 'business', path: '/enterprise/profile' },
   ];
+
+  const isItemActive = (item) => {
+    if (item.id === 'create_requirement') {
+      return location.pathname === '/enterprise/requirements/create';
+    }
+    if (item.id === 'requirements') {
+      return location.pathname.startsWith('/enterprise/requirements') && location.pathname !== '/enterprise/requirements/create';
+    }
+    if (item.id === 'orders') {
+      return location.pathname.startsWith('/enterprise/orders') || location.pathname.startsWith('/enterprise/order-tracking');
+    }
+    return location.pathname === item.path;
+  };
 
   return (
     <aside style={{
@@ -51,14 +66,14 @@ export default function EnterpriseSidebar({ activeTab, setActiveTab, onLogout })
         </div>
       </div>
 
-      {/* Navigation List — Clean visual styling without notification badges */}
+      {/* Navigation List */}
       <nav style={{ padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: 4, flex: 1, overflowY: 'auto' }}>
         <div style={{ fontSize: 10, fontWeight: 700, color: '#becab9', padding: '8px 12px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Procurement Portal
         </div>
 
         {navItems.map(item => {
-          const isActive = activeTab === item.id || ((activeTab === 'requirement_details' || activeTab === 'bids') && item.id === 'requirements') || (activeTab === 'order_tracking' && item.id === 'orders');
+          const isActive = isItemActive(item);
 
           return (
             <button

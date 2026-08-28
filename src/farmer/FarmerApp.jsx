@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Routes, Route, useNavigate, useLocation, useParams, Navigate } from 'react-router-dom';
 import './farmer.css';
 import { FarmerProvider } from './FarmerContext';
 import FarmerDashboard from './FarmerDashboard';
@@ -11,25 +12,68 @@ import FarmerProfile from './FarmerProfile';
 import AiInsights from './AiInsights';
 import farmerAvatar from '../assets/farmer-asset-1.png';
 
+function AddProductRouteWrapper({ onNavigate }) {
+  const { editProductId } = useParams();
+  return <AddProduct onNavigate={onNavigate} editProductId={editProductId} />;
+}
+
 function FarmerShell({ onBack }) {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const navigate = useNavigate();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [editProductId, setEditProductId] = useState(null); // passed to ProductManagement → AddProduct
 
   const navItems = [
-    { id: 'dashboard',   label: 'Dashboard',              icon: 'dashboard' },
-    { id: 'shop',        label: 'My Shop',                icon: 'storefront' },
-    { id: 'products',    label: 'Products',               icon: 'inventory_2' },
-    { id: 'forecast',    label: 'AI Demand Forecast',     icon: 'trending_up' },
-    { id: 'orders',      label: 'Orders',                 icon: 'shopping_cart' },
-    { id: 'enterprise',  label: 'Enterprise Requirements',icon: 'business_center' },
-    { id: 'profile',     label: 'Profile',                icon: 'person' },
+    { id: 'dashboard',   label: 'Dashboard',              icon: 'dashboard',       path: '/farmer/dashboard' },
+    { id: 'shop',        label: 'My Shop',                icon: 'storefront',      path: '/farmer/shop' },
+    { id: 'products',    label: 'Products',               icon: 'inventory_2',     path: '/farmer/products' },
+    { id: 'forecast',    label: 'AI Demand Forecast',     icon: 'trending_up',     path: '/farmer/forecast' },
+    { id: 'orders',      label: 'Orders',                 icon: 'shopping_cart',   path: '/farmer/orders' },
+    { id: 'enterprise',  label: 'Enterprise Requirements',icon: 'business_center', path: '/farmer/enterprise-requirements' },
+    { id: 'profile',     label: 'Profile',                icon: 'person',          path: '/farmer/profile' },
   ];
 
-  const navigate = (tab, payload) => {
-    if (tab === 'add-product') setEditProductId(payload || null);
-    setActiveTab(tab);
+  const handleNavigate = (tab, payload) => {
     setMobileMenuOpen(false);
+    switch (tab) {
+      case 'dashboard':
+        navigate('/farmer/dashboard');
+        break;
+      case 'shop':
+        navigate('/farmer/shop');
+        break;
+      case 'products':
+        navigate('/farmer/products');
+        break;
+      case 'add-product':
+        if (payload) {
+          navigate(`/farmer/products/edit/${payload}`);
+        } else {
+          navigate('/farmer/products/add');
+        }
+        break;
+      case 'forecast':
+        navigate('/farmer/forecast');
+        break;
+      case 'orders':
+        navigate('/farmer/orders');
+        break;
+      case 'enterprise':
+        navigate('/farmer/enterprise-requirements');
+        break;
+      case 'profile':
+        navigate('/farmer/profile');
+        break;
+      default:
+        navigate('/farmer/dashboard');
+        break;
+    }
+  };
+
+  const isItemActive = (item) => {
+    if (item.id === 'products') {
+      return location.pathname.startsWith('/farmer/products');
+    }
+    return location.pathname === item.path;
   };
 
   return (
@@ -52,11 +96,11 @@ function FarmerShell({ onBack }) {
 
         <ul className="flex flex-col gap-2 flex-grow">
           {navItems.map(item => {
-            const isActive = activeTab === item.id || (activeTab === 'add-product' && item.id === 'products');
+            const isActive = isItemActive(item);
             return (
               <li key={item.id}>
                 <button
-                  onClick={() => navigate(item.id)}
+                  onClick={() => handleNavigate(item.id)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-label-md font-label-md transition-colors duration-200 text-left ${
                     isActive
                       ? 'text-primary font-bold border-r-4 border-primary bg-surface-container-high'
@@ -129,9 +173,9 @@ function FarmerShell({ onBack }) {
         {mobileMenuOpen && (
           <div className="md:hidden fixed inset-x-0 top-16 bg-surface-container-low border-b border-outline-variant/30 z-50 p-4 flex flex-col gap-2">
             {navItems.map(item => (
-              <button key={item.id} onClick={() => navigate(item.id)}
+              <button key={item.id} onClick={() => handleNavigate(item.id)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg text-label-md font-label-md text-left ${
-                  activeTab === item.id ? 'text-primary font-bold bg-surface-container-high' : 'text-on-surface-variant'
+                  isItemActive(item) ? 'text-primary font-bold bg-surface-container-high' : 'text-on-surface-variant'
                 }`}>
                 <span className="material-symbols-outlined">{item.icon}</span>
                 <span>{item.label}</span>
@@ -147,14 +191,19 @@ function FarmerShell({ onBack }) {
         )}
 
         {/* Screen Router */}
-        {activeTab === 'dashboard'  && <FarmerDashboard onNavigate={navigate} />}
-        {activeTab === 'shop'       && <MyShop          onNavigate={navigate} />}
-        {activeTab === 'products'   && <ProductManagement onNavigate={navigate} />}
-        {activeTab === 'add-product'&& <AddProduct       onNavigate={navigate} editProductId={editProductId} />}
-        {activeTab === 'forecast'   && <AiInsights />}
-        {activeTab === 'orders'     && <Orders           onNavigate={navigate} />}
-        {activeTab === 'enterprise' && <EnterpriseRequirements />}
-        {activeTab === 'profile'    && <FarmerProfile />}
+        <Routes>
+          <Route path="/" element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<FarmerDashboard onNavigate={handleNavigate} />} />
+          <Route path="shop" element={<MyShop onNavigate={handleNavigate} />} />
+          <Route path="products" element={<ProductManagement onNavigate={handleNavigate} />} />
+          <Route path="products/add" element={<AddProduct onNavigate={handleNavigate} editProductId={null} />} />
+          <Route path="products/edit/:editProductId" element={<AddProductRouteWrapper onNavigate={handleNavigate} />} />
+          <Route path="forecast" element={<AiInsights />} />
+          <Route path="orders" element={<Orders onNavigate={handleNavigate} />} />
+          <Route path="enterprise-requirements" element={<EnterpriseRequirements />} />
+          <Route path="profile" element={<FarmerProfile />} />
+          <Route path="*" element={<Navigate to="dashboard" replace />} />
+        </Routes>
 
       </div>
     </div>

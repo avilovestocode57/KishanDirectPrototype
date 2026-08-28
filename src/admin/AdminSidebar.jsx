@@ -1,14 +1,17 @@
 // AdminSidebar.jsx — Main Navigation Sidebar for KisanDirect Admin
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { useAdmin } from './AdminContext';
 
 export default function AdminSidebar({ activeTab, onTabChange, onBack, unreadCount, onOpenNotifs }) {
+  const location = useLocation();
+
   const navItems = [
-    { id: 'overview',   label: 'Overview',               icon: 'dashboard' },
-    { id: 'users',      label: 'Users & Roles',          icon: 'group' },
-    { id: 'approvals',  label: 'Product Approvals',      icon: 'fact_check', badgeKey: 'pendingProducts' },
-    { id: 'orders',     label: 'Orders & Operations',    icon: 'local_shipping', badgeKey: 'pendingOrders' },
-    { id: 'ai-insights',label: 'AI & Regional Insights', icon: 'psychology' },
+    { id: 'overview',   label: 'Overview',               icon: 'dashboard', path: '/admin/overview' },
+    { id: 'users',      label: 'Users & Roles',          icon: 'group', path: '/admin/users' },
+    { id: 'approvals',  label: 'Product Approvals',      icon: 'fact_check', badgeKey: 'pendingProducts', path: '/admin/approvals' },
+    { id: 'orders',     label: 'Orders & Operations',    icon: 'local_shipping', badgeKey: 'pendingOrders', path: '/admin/orders' },
+    { id: 'ai-insights',label: 'AI & Regional Insights', icon: 'psychology', path: '/admin/ai-insights' },
   ];
 
   const adminCtx = useAdmin();
@@ -41,7 +44,7 @@ export default function AdminSidebar({ activeTab, onTabChange, onBack, unreadCou
         </div>
 
         {navItems.map(item => {
-          const isActive = activeTab === item.id;
+          const isActive = location.pathname === item.path;
           const count = item.badgeKey ? adminCtx[item.badgeKey] : 0;
           return (
             <button
@@ -85,7 +88,7 @@ export default function AdminSidebar({ activeTab, onTabChange, onBack, unreadCou
           style={{
             display: 'flex',
             alignItems: 'center',
-            justify: 'space-between',
+            justifyContent: 'space-between',
             padding: '10px 12px',
             borderRadius: 8,
             background: 'rgba(19, 33, 44, 0.8)',

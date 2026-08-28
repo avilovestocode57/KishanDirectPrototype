@@ -1,5 +1,6 @@
 // EnterpriseApp.jsx — Main Application Shell for KisanDirect Enterprise Buyer Module
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { Routes, Route, useNavigate, useParams, Navigate } from 'react-router-dom';
 import { EnterpriseProvider } from './EnterpriseContext';
 import EnterpriseSidebar from './EnterpriseSidebar';
 import EnterpriseDashboard from './EnterpriseDashboard';
@@ -11,17 +12,67 @@ import OrderTracking from './OrderTracking';
 import EnterpriseProfile from './EnterpriseProfile';
 import './enterprise.css';
 
+function RequirementDetailsBidsWrapper({ onNavigate, setSelectedOrderId }) {
+  const { reqId } = useParams();
+  return <RequirementDetailsBids reqId={reqId || 'REQ-701'} onNavigate={onNavigate} setSelectedOrderId={setSelectedOrderId} />;
+}
+
+function OrderTrackingWrapper({ onNavigate }) {
+  const { orderId } = useParams();
+  return <OrderTracking orderId={orderId || 'ORD-ENT-501'} onNavigate={onNavigate} />;
+}
+
 function EnterpriseMainContent({ onBack }) {
-  const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'requirements' | 'create_requirement' | 'bids' | 'requirement_details' | 'orders' | 'order_tracking' | 'profile'
-  const [selectedReqId, setSelectedReqId] = useState('REQ-701');
-  const [selectedOrderId, setSelectedOrderId] = useState('ORD-ENT-501');
+  const navigate = useNavigate();
+  const [selectedReqId, setSelectedReqIdState] = useState('REQ-701');
+  const [selectedOrderId, setSelectedOrderIdState] = useState('ORD-ENT-501');
+
+  const handleNavigate = useCallback((tab, payload) => {
+    switch (tab) {
+      case 'dashboard':
+        navigate('/enterprise/dashboard');
+        break;
+      case 'requirements':
+        navigate('/enterprise/requirements');
+        break;
+      case 'create_requirement':
+        navigate('/enterprise/requirements/create');
+        break;
+      case 'bids':
+      case 'requirement_details':
+        const targetReqId = payload || selectedReqId || 'REQ-701';
+        navigate(`/enterprise/requirements/${targetReqId}`);
+        break;
+      case 'orders':
+        navigate('/enterprise/orders');
+        break;
+      case 'order_tracking':
+        const targetOrderId = payload || selectedOrderId || 'ORD-ENT-501';
+        navigate(`/enterprise/order-tracking/${targetOrderId}`);
+        break;
+      case 'profile':
+        navigate('/enterprise/profile');
+        break;
+      default:
+        navigate('/enterprise/dashboard');
+        break;
+    }
+  }, [navigate, selectedReqId, selectedOrderId]);
+
+  const handleSetSelectedReqId = useCallback((id) => {
+    setSelectedReqIdState(id);
+  }, []);
+
+  const handleSetSelectedOrderId = useCallback((id) => {
+    setSelectedOrderIdState(id);
+  }, []);
 
   return (
     <div className="e-portal">
       {/* Sidebar */}
       <EnterpriseSidebar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        activeTab={null}
+        setActiveTab={handleNavigate}
         onLogout={onBack}
       />
 
@@ -66,53 +117,49 @@ function EnterpriseMainContent({ onBack }) {
 
         {/* Content Views */}
         <div style={{ flex: 1, paddingBottom: 40 }}>
-          {activeTab === 'dashboard' && (
-            <EnterpriseDashboard
-              onNavigate={setActiveTab}
-              setSelectedReqId={setSelectedReqId}
-              setSelectedOrderId={setSelectedOrderId}
-            />
-          )}
-
-          {activeTab === 'requirements' && (
-            <BulkRequirements
-              onNavigate={setActiveTab}
-              setSelectedReqId={setSelectedReqId}
-            />
-          )}
-
-          {activeTab === 'create_requirement' && (
-            <CreateRequirement
-              onNavigate={setActiveTab}
-              setSelectedReqId={setSelectedReqId}
-            />
-          )}
-
-          {(activeTab === 'bids' || activeTab === 'requirement_details') && (
-            <RequirementDetailsBids
-              reqId={selectedReqId}
-              onNavigate={setActiveTab}
-              setSelectedOrderId={setSelectedOrderId}
-            />
-          )}
-
-          {activeTab === 'orders' && (
-            <EnterpriseOrders
-              onNavigate={setActiveTab}
-              setSelectedOrderId={setSelectedOrderId}
-            />
-          )}
-
-          {activeTab === 'order_tracking' && (
-            <OrderTracking
-              orderId={selectedOrderId}
-              onNavigate={setActiveTab}
-            />
-          )}
-
-          {activeTab === 'profile' && (
-            <EnterpriseProfile onLogout={onBack} />
-          )}
+          <Routes>
+            <Route path="/" element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={
+              <EnterpriseDashboard
+                onNavigate={handleNavigate}
+                setSelectedReqId={handleSetSelectedReqId}
+                setSelectedOrderId={handleSetSelectedOrderId}
+              />
+            } />
+            <Route path="requirements" element={
+              <BulkRequirements
+                onNavigate={handleNavigate}
+                setSelectedReqId={handleSetSelectedReqId}
+              />
+            } />
+            <Route path="requirements/create" element={
+              <CreateRequirement
+                onNavigate={handleNavigate}
+                setSelectedReqId={handleSetSelectedReqId}
+              />
+            } />
+            <Route path="requirements/:reqId" element={
+              <RequirementDetailsBidsWrapper
+                onNavigate={handleNavigate}
+                setSelectedOrderId={handleSetSelectedOrderId}
+              />
+            } />
+            <Route path="orders" element={
+              <EnterpriseOrders
+                onNavigate={handleNavigate}
+                setSelectedOrderId={handleSetSelectedOrderId}
+              />
+            } />
+            <Route path="order-tracking/:orderId" element={
+              <OrderTrackingWrapper
+                onNavigate={handleNavigate}
+              />
+            } />
+            <Route path="profile" element={
+              <EnterpriseProfile onLogout={onBack} />
+            } />
+            <Route path="*" element={<Navigate to="dashboard" replace />} />
+          </Routes>
         </div>
       </main>
     </div>

@@ -1,5 +1,6 @@
 // ConsumerApp.jsx — Root shell for KisanDirect Consumer Marketplace
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
+import { Routes, Route, useNavigate, useLocation, useParams, Navigate } from 'react-router-dom';
 import './consumer.css';
 import { ConsumerProvider, useConsumer } from './ConsumerContext';
 import Marketplace      from './Marketplace';
@@ -11,9 +12,34 @@ import OrderConfirmation from './OrderConfirmation';
 import OrderTracking    from './OrderTracking';
 import ConsumerProfile  from './ConsumerProfile';
 
+// ─── Route Wrappers for Params ────────────────────────────────────────────────
+function ProductDetailsWrapper({ onNavigate }) {
+  const { productId } = useParams();
+  return <ProductDetails onNavigate={onNavigate} productId={productId} />;
+}
+
+function FarmerShopWrapper({ onNavigate }) {
+  const { farmerId } = useParams();
+  return <FarmerShop onNavigate={onNavigate} farmerId={farmerId} />;
+}
+
+function OrderConfirmationWrapper({ onNavigate }) {
+  const { orderId } = useParams();
+  return <OrderConfirmation onNavigate={onNavigate} orderId={orderId} />;
+}
+
+function OrderTrackingWrapper({ onNavigate }) {
+  const { orderId } = useParams();
+  return <OrderTracking onNavigate={onNavigate} orderId={orderId} />;
+}
+
 // ─── Top Navigation Header ─────────────────────────────────────────────────────
 function ConsumerHeader({ onNavigate, onBack }) {
   const { cartCount } = useConsumer();
+  const location = useLocation();
+
+  const isPath = (p) => location.pathname === p;
+
   return (
     <header style={{
       position: 'sticky', top: 0, zIndex: 100,
@@ -36,18 +62,18 @@ function ConsumerHeader({ onNavigate, onBack }) {
 
       {/* Nav Buttons */}
       <button onClick={() => onNavigate('marketplace')}
-        style={{ background:'transparent', border:'none', cursor:'pointer', color:'#becab9', display:'flex', alignItems:'center', gap:5, fontSize:13, padding:'6px 10px', borderRadius:6, transition:'all 0.2s' }}
+        style={{ background:'transparent', border:'none', cursor:'pointer', color: isPath('/consumer/marketplace') ? '#84e684' : '#becab9', display:'flex', alignItems:'center', gap:5, fontSize:13, padding:'6px 10px', borderRadius:6, transition:'all 0.2s' }}
         onMouseEnter={e => e.currentTarget.style.color = '#84e684'}
-        onMouseLeave={e => e.currentTarget.style.color = '#becab9'}>
+        onMouseLeave={e => e.currentTarget.style.color = isPath('/consumer/marketplace') ? '#84e684' : '#becab9'}>
         <span className="material-symbols-outlined" style={{ fontSize:18 }}>storefront</span>
         <span className="desktop-only">Shop</span>
       </button>
 
       {/* Cart */}
       <button onClick={() => onNavigate('cart')}
-        style={{ background:'transparent', border:'none', cursor:'pointer', color:'#becab9', display:'flex', alignItems:'center', gap:5, fontSize:13, padding:'6px 10px', borderRadius:6, position:'relative', transition:'all 0.2s' }}
+        style={{ background:'transparent', border:'none', cursor:'pointer', color: isPath('/consumer/cart') ? '#84e684' : '#becab9', display:'flex', alignItems:'center', gap:5, fontSize:13, padding:'6px 10px', borderRadius:6, position:'relative', transition:'all 0.2s' }}
         onMouseEnter={e => e.currentTarget.style.color = '#84e684'}
-        onMouseLeave={e => e.currentTarget.style.color = '#becab9'}>
+        onMouseLeave={e => e.currentTarget.style.color = isPath('/consumer/cart') ? '#84e684' : '#becab9'}>
         <span className="material-symbols-outlined" style={{ fontSize:22 }}>shopping_cart</span>
         {cartCount > 0 && <span className="c-cart-badge">{cartCount > 9 ? '9+' : cartCount}</span>}
         <span className="desktop-only">Cart {cartCount > 0 ? `(${cartCount})` : ''}</span>
@@ -55,9 +81,9 @@ function ConsumerHeader({ onNavigate, onBack }) {
 
       {/* Profile */}
       <button onClick={() => onNavigate('profile')}
-        style={{ background:'transparent', border:'none', cursor:'pointer', color:'#becab9', display:'flex', alignItems:'center', gap:5, fontSize:13, padding:'6px 10px', borderRadius:6, transition:'all 0.2s' }}
+        style={{ background:'transparent', border:'none', cursor:'pointer', color: isPath('/consumer/profile') ? '#84e684' : '#becab9', display:'flex', alignItems:'center', gap:5, fontSize:13, padding:'6px 10px', borderRadius:6, transition:'all 0.2s' }}
         onMouseEnter={e => e.currentTarget.style.color = '#84e684'}
-        onMouseLeave={e => e.currentTarget.style.color = '#becab9'}>
+        onMouseLeave={e => e.currentTarget.style.color = isPath('/consumer/profile') ? '#84e684' : '#becab9'}>
         <span className="material-symbols-outlined" style={{ fontSize:20 }}>account_circle</span>
         <span className="desktop-only">Profile</span>
       </button>
@@ -78,39 +104,61 @@ function ConsumerHeader({ onNavigate, onBack }) {
 
 // ─── Router Shell ──────────────────────────────────────────────────────────────
 function ConsumerShell({ onBack }) {
-  // Route state: { screen, payload }
-  const [route, setRoute] = useState({ screen: 'marketplace', payload: {} });
-  const [history, setHistory] = useState([]);
+  const navigate = useNavigate();
 
-  const navigate = useCallback((screenOrDelta, payload = {}) => {
+  const handleNavigate = useCallback((screenOrDelta, payload = {}) => {
     if (screenOrDelta === -1) {
-      // Go back
-      setHistory(h => {
-        if (h.length === 0) return h;
-        const prev = h[h.length - 1];
-        setRoute(prev);
-        return h.slice(0, -1);
-      });
+      navigate(-1);
       return;
     }
-    setHistory(h => [...h, route]);
-    setRoute({ screen: screenOrDelta, payload });
-  }, [route]);
 
-  const { screen, payload } = route;
+    switch (screenOrDelta) {
+      case 'marketplace':
+        navigate('/consumer/marketplace');
+        break;
+      case 'product':
+        navigate(`/consumer/product/${payload.productId || payload}`);
+        break;
+      case 'farmer-shop':
+        navigate(`/consumer/farmer/${payload.farmerId || payload}`);
+        break;
+      case 'cart':
+        navigate('/consumer/cart');
+        break;
+      case 'checkout':
+        navigate('/consumer/checkout');
+        break;
+      case 'order-confirmation':
+        navigate(`/consumer/order-confirmation/${payload.orderId || payload}`);
+        break;
+      case 'order-tracking':
+        navigate(`/consumer/order-tracking/${payload.orderId || payload}`);
+        break;
+      case 'profile':
+        navigate('/consumer/profile');
+        break;
+      default:
+        navigate('/consumer/marketplace');
+        break;
+    }
+  }, [navigate]);
 
   return (
     <div className="consumer-root" style={{ minHeight:'100vh' }}>
-      <ConsumerHeader onNavigate={navigate} onBack={onBack} />
+      <ConsumerHeader onNavigate={handleNavigate} onBack={onBack} />
       <main>
-        {screen === 'marketplace'        && <Marketplace       onNavigate={navigate} />}
-        {screen === 'product'            && <ProductDetails    onNavigate={navigate} productId={payload.productId} />}
-        {screen === 'farmer-shop'        && <FarmerShop        onNavigate={navigate} farmerId={payload.farmerId} />}
-        {screen === 'cart'               && <ShoppingCart      onNavigate={navigate} />}
-        {screen === 'checkout'           && <Checkout          onNavigate={navigate} />}
-        {screen === 'order-confirmation' && <OrderConfirmation onNavigate={navigate} orderId={payload.orderId} />}
-        {screen === 'order-tracking'     && <OrderTracking     onNavigate={navigate} orderId={payload.orderId} />}
-        {screen === 'profile'            && <ConsumerProfile   onNavigate={navigate} />}
+        <Routes>
+          <Route path="/" element={<Navigate to="marketplace" replace />} />
+          <Route path="marketplace" element={<Marketplace onNavigate={handleNavigate} />} />
+          <Route path="product/:productId" element={<ProductDetailsWrapper onNavigate={handleNavigate} />} />
+          <Route path="farmer/:farmerId" element={<FarmerShopWrapper onNavigate={handleNavigate} />} />
+          <Route path="cart" element={<ShoppingCart onNavigate={handleNavigate} />} />
+          <Route path="checkout" element={<Checkout onNavigate={handleNavigate} />} />
+          <Route path="order-confirmation/:orderId" element={<OrderConfirmationWrapper onNavigate={handleNavigate} />} />
+          <Route path="order-tracking/:orderId" element={<OrderTrackingWrapper onNavigate={handleNavigate} />} />
+          <Route path="profile" element={<ConsumerProfile onNavigate={handleNavigate} />} />
+          <Route path="*" element={<Navigate to="marketplace" replace />} />
+        </Routes>
       </main>
     </div>
   );

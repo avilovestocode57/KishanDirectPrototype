@@ -1,70 +1,118 @@
-import { useState } from 'react'
-import Auth from './auth'
-import FarmerApp     from './farmer/FarmerApp'
-import ConsumerApp   from './consumer/ConsumerApp'
-import AdminApp      from './admin/AdminApp'
-import EnterpriseApp from './enterprise/EnterpriseApp'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, Navigate, useLocation } from 'react-router-dom';
+import Auth from './auth';
+import FarmerApp from './farmer/FarmerApp';
+import ConsumerApp from './consumer/ConsumerApp';
+import AdminApp from './admin/AdminApp';
+import EnterpriseApp from './enterprise/EnterpriseApp';
+import ProtectedRoute from './ProtectedRoute';
+import NotFound from './NotFound';
 
-function App() {
-  const [role, setRole] = useState(null)
+function AppRoutes() {
+  const [role, setRole] = useState(() => localStorage.getItem('kd_active_role'));
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  if (!role) {
-    return <Auth onSelectRole={setRole} />
-  }
+  const handleSelectRole = (selectedRole) => {
+    setRole(selectedRole);
+    localStorage.setItem('kd_active_role', selectedRole);
+    switch (selectedRole) {
+      case 'farmer':
+        navigate('/farmer/dashboard');
+        break;
+      case 'user':
+        navigate('/consumer/marketplace');
+        break;
+      case 'enterprise':
+        navigate('/enterprise/dashboard');
+        break;
+      case 'admin':
+        navigate('/admin/overview');
+        break;
+      default:
+        navigate('/');
+    }
+  };
 
-  if (role === 'farmer') {
-    return <FarmerApp onBack={() => setRole(null)} />
-  }
+  const handleLogout = () => {
+    setRole(null);
+    localStorage.removeItem('kd_active_role');
+    navigate('/');
+  };
 
-  if (role === 'user') {
-    return <ConsumerApp onBack={() => setRole(null)} />
-  }
-
-  if (role === 'admin') {
-    return <AdminApp onBack={() => setRole(null)} />
-  }
-
-  if (role === 'enterprise') {
-    return <EnterpriseApp onBack={() => setRole(null)} />
-  }
+  // Synchronize state if localStorage is cleared or changed externally
+  useEffect(() => {
+    const saved = localStorage.getItem('kd_active_role');
+    if (saved !== role) {
+      setRole(saved);
+    }
+  }, [location.pathname]);
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      width: '100%',
-      backgroundColor: '#0E1117',
-      color: '#E8F3E8',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontFamily: 'Inter, system-ui, sans-serif'
-    }}>
-      <h1 style={{ textTransform: 'uppercase', letterSpacing: '2px', fontSize: '24px' }}>
-        {role} APPLICATION
-      </h1>
-      <p style={{ color: '#8FA99A', margin: '16px 0 24px 0' }}>
-        Selected role: <strong>{role}</strong>
-      </p>
-      <button
-        type="button"
-        onClick={() => setRole(null)}
-        style={{
-          padding: '10px 20px',
-          borderRadius: '8px',
-          border: '1px solid #285E4C',
-          backgroundColor: '#123033',
-          color: '#E8F3E8',
-          cursor: 'pointer',
-          fontSize: '14px',
-          letterSpacing: '1px',
-          textTransform: 'uppercase'
-        }}
-      >
-        Change Role
-      </button>
-    </div>
-  )
+    <Routes>
+      {/* Public Landing & Role Selection */}
+      <Route
+        path="/"
+        element={
+          role ? (
+            role === 'farmer' ? <Navigate to="/farmer/dashboard" replace /> :
+            role === 'user' ? <Navigate to="/consumer/marketplace" replace /> :
+            role === 'enterprise' ? <Navigate to="/enterprise/dashboard" replace /> :
+            role === 'admin' ? <Navigate to="/admin/overview" replace /> :
+            <Auth onSelectRole={handleSelectRole} />
+          ) : (
+            <Auth onSelectRole={handleSelectRole} />
+          )
+        }
+      />
+
+      {/* Role-Protected Route Branches */}
+      <Route
+        path="/farmer/*"
+        element={
+          <ProtectedRoute allowedRole="farmer" activeRole={role}>
+            <FarmerApp onBack={handleLogout} />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/consumer/*"
+        element={
+          <ProtectedRoute allowedRole="user" activeRole={role}>
+            <ConsumerApp onBack={handleLogout} />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/enterprise/*"
+        element={
+          <ProtectedRoute allowedRole="enterprise" activeRole={role}>
+            <EnterpriseApp onBack={handleLogout} />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin/*"
+        element={
+          <ProtectedRoute allowedRole="admin" activeRole={role}>
+            <AdminApp onBack={handleLogout} />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* 404 Fallback */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+}

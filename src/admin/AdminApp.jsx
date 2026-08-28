@@ -1,5 +1,6 @@
 // AdminApp.jsx — Root shell for KisanDirect Admin Portal
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { AdminProvider, useAdmin } from './AdminContext';
 import AdminSidebar from './AdminSidebar';
 import AdminOverview from './AdminOverview';
@@ -10,14 +11,38 @@ import AdminAIInsights from './AdminAIInsights';
 import './admin.css';
 
 function AdminContent({ onBack }) {
-  const [activeTab, setActiveTab] = useState('overview');
+  const navigate = useNavigate();
   const [showNotifModal, setShowNotifModal] = useState(false);
 
   const { notifications, markNotifRead } = useAdmin();
   const unreadCount = notifications.filter(n => !n.read).length;
 
+  const handleNavigate = useCallback((tab) => {
+    switch (tab) {
+      case 'overview':
+        navigate('/admin/overview');
+        break;
+      case 'users':
+        navigate('/admin/users');
+        break;
+      case 'approvals':
+        navigate('/admin/approvals');
+        break;
+      case 'orders':
+        navigate('/admin/orders');
+        break;
+      case 'ai':
+      case 'ai-insights':
+        navigate('/admin/ai-insights');
+        break;
+      default:
+        navigate('/admin/overview');
+        break;
+    }
+  }, [navigate]);
+
   function handleNotifClick(target) {
-    if (target) setActiveTab(target);
+    if (target) handleNavigate(target);
     setShowNotifModal(false);
     markNotifRead();
   }
@@ -26,8 +51,8 @@ function AdminContent({ onBack }) {
     <div className="admin-root">
       {/* Sidebar */}
       <AdminSidebar
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
+        activeTab={null}
+        onTabChange={handleNavigate}
         onBack={onBack}
         unreadCount={unreadCount}
         onOpenNotifs={() => { setShowNotifModal(true); markNotifRead(); }}
@@ -35,11 +60,15 @@ function AdminContent({ onBack }) {
 
       {/* Main Content Viewport */}
       <main style={{ flex: 1, overflowY: 'auto', background: '#061520', minWidth: 0 }}>
-        {activeTab === 'overview'    && <AdminOverview   onNavigate={setActiveTab} />}
-        {activeTab === 'users'       && <AdminUsers      />}
-        {activeTab === 'approvals'   && <AdminApprovals  />}
-        {activeTab === 'orders'      && <AdminOrders     />}
-        {activeTab === 'ai-insights' && <AdminAIInsights />}
+        <Routes>
+          <Route path="/" element={<Navigate to="overview" replace />} />
+          <Route path="overview" element={<AdminOverview onNavigate={handleNavigate} />} />
+          <Route path="users" element={<AdminUsers />} />
+          <Route path="approvals" element={<AdminApprovals />} />
+          <Route path="orders" element={<AdminOrders />} />
+          <Route path="ai-insights" element={<AdminAIInsights />} />
+          <Route path="*" element={<Navigate to="overview" replace />} />
+        </Routes>
       </main>
 
       {/* Notifications Modal */}
